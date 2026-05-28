@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "ec45fa36-4710-429f-bb23-89f28d653008",
+  "workspaceRoot": "/home/hatch/workspace/neon-drift",
+  "pid": 35454,
+  "port": 8081,
+  "localUrl": "https://localhost:8081/",
+  "networkUrls": [
+    "https://198.19.0.2:8081/"
+  ],
+  "aiMode": "agent",
+  "aiTools": [
+    "claude"
+  ],
+  "browser": {
+    "status": "launch_failed",
+    "connected": false,
+    "connectedClientCount": 0,
+    "lastTransitionAt": "2026-05-28T12:59:27.613Z",
+    "lastError": {
+      "cause": "browser_launch_failed",
+      "message": "page.waitForFunction: Timeout 30000ms exceeded.",
+      "at": "2026-05-28T12:59:27.613Z"
+    }
+  },
+  "registeredAt": "2026-05-28T12:58:36.556Z",
+  "updatedAt": "2026-05-28T12:59:27.616Z"
+}

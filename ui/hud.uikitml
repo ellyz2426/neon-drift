@@ -3,6 +3,7 @@
   .row { display:flex; flex-direction:row; justify-content:space-between; margin:4; }
   .label { font-size:14; color:#88ffff; }
   .value { font-size:16; color:#00ffff; font-weight:bold; }
+  .ghost { font-size:12; color:#ff88ff; }
 </style>
 <div class="hud">
   <div class="row"><span class="label">SPEED</span><span id="speed" class="value">0 km/h</span></div>
@@ -11,4 +12,5 @@
   <div class="row"><span class="label">BOOST</span><span id="boost" class="value">100%</span></div>
   <div class="row"><span class="label">DRIFT</span><span id="drift" class="value">0x</span></div>
   <div class="row"><span class="label">TIME</span><span id="laptime" class="value">0.0s</span></div>
+  <div class="row"><span class="label">GHOST</span><span id="ghost" class="ghost">--</span></div>
 </div>

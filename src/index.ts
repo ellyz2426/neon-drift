@@ -1,5 +1,5 @@
 import { World, PanelUI, Follower, FollowBehavior, PanelDocument, UIKitDocument, createSystem, InputComponent } from '@iwsdk/core';
-import { MeshBasicMaterial, GridHelper, Fog, Color, AmbientLight, DirectionalLight, PointLight, Vector3, Mesh, SphereGeometry, MeshStandardMaterial, AdditiveBlending, CylinderGeometry, RingGeometry, DoubleSide } from '@iwsdk/core';
+import { MeshBasicMaterial, GridHelper, Fog, Color, AmbientLight, DirectionalLight, PointLight, Vector3, Mesh, SphereGeometry, MeshStandardMaterial, AdditiveBlending, CylinderGeometry, RingGeometry, DoubleSide, BoxGeometry } from '@iwsdk/core';
 import { GameState, TRACKS, HOVER_COLORS } from './types';
 import { AudioManager } from './audio';
 import { Track } from './track';
@@ -190,8 +190,33 @@ function initTrackFeatures() {
     world.scene.add(mesh);
     hazardObstacles.push({ mesh, t, speed: 0.05 + i*0.01 });
   }
+  
+  // Finish line banner
+  const finishPos = track.curve.getPointAt(0);
+  const finishTan = track.curve.getTangentAt(0).normalize();
+  const finishGeo = new BoxGeometry(12, 0.2, 0.5);
+  const finishMat = new MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.8 });
+  const banner = new Mesh(finishGeo, finishMat);
+  banner.position.copy(finishPos);
+  banner.position.y += 4;
+  banner.lookAt(finishPos.clone().add(finishTan));
+  world.scene.add(banner);
+  
+  // Track decorations - neon pillars
+  for (let i=0;i<8;i++) {
+    const t = i / 8;
+    const pos = track.curve.getPointAt(t);
+    const normal = track.curve.getTangentAt(t).normalize().cross(new Vector3(0,1,0)).normalize();
+    pos.add(normal.multiplyScalar(8));
+    pos.y = 0;
+    const pillarGeo = new CylinderGeometry(0.3, 0.3, 6, 8);
+    const pillarMat = new MeshStandardMaterial({ color: 0x00ffff, emissive: 0x00ffff, emissiveIntensity: 0.5 });
+    const pillar = new Mesh(pillarGeo, pillarMat);
+    pillar.position.copy(pos);
+    pillar.position.y += 3;
+    world.scene.add(pillar);
+  }
 }
-
 function startRace() {
   if (gameMode === 'championship') {
     currentTrackIdx = championshipRaceIdx % TRACKS.length;
@@ -274,6 +299,15 @@ function updateHUD() {
   setText(doc, 'drift', driftCombo > 0 ? `${driftCombo.toFixed(1)}x` : '0x');
   const lapTime = (performance.now()/1000 - lapStartTime).toFixed(1);
   setText(doc, 'laptime', countdownActive ? `GO! ${Math.ceil(raceCountdown)}` : `${lapTime}s`);
+  // Ghost comparison
+  if (bestLap !== Infinity) {
+    const currentLap = performance.now()/1000 - lapStartTime;
+    const diff = currentLap - bestLap;
+    const sign = diff >= 0 ? '+' : '';
+    setText(doc, 'ghost', `${sign}${diff.toFixed(1)}s`);
+  } else {
+    setText(doc, 'ghost', '--');
+  }
 }
 
 function getPosition(): number {
@@ -683,3 +717,4 @@ const system = createSystem((world, dt) => {
 
 world.registerSystem(system);
 showUI('title');
+

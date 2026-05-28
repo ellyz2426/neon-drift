@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "workspaceRoot": "/home/hatch/workspace/neon-drift",
+  "pid": 35454,
+  "command": "npm",
+  "args": [
+    "run",
+    "dev:runtime"
+  ],
+  "logPath": "/home/hatch/workspace/neon-drift/.iwsdk/runtime/logs/dev-1779973113556.log",
+  "scriptName": "dev:runtime",
+  "port": 8081,
+  "openBrowser": false,
+  "createdAt": "2026-05-28T12:59:27.947Z"
+}

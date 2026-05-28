@@ -1,0 +1,213 @@
+
+> neon-drift@1.0.0 dev:runtime
+> vite
+
+You are using Node.js 18.19.1. Vite requires Node.js version 20.19+ or 22.12+. Please upgrade your Node.js version.
+🔧 IWSDK Dev Configuration:
+  - Device: metaQuest3
+  - SEM: disabled
+  - AI: enabled (agent mode)
+  - Activation: localhost
+  - UA exception: enabled
+  - Inject on build: false
+[compile-uikitml] Plugin initialized with options: {
+  sourceDir: 'ui',
+  outputDir: 'public/ui',
+  watch: true,
+  verbose: true,
+  include: /\.uikitml$/
+}
+[compile-uikitml] Vite command: serve
+[compile-uikitml] Vite mode: development
+🔌 IWSDK-MCP: WebSocket endpoint registered at /__iwer_mcp
+🔍 UIKitML watcher monitoring: /home/hatch/workspace/neon-drift/ui
+🚀 Generating initial UIKitML files for dev server...
+[compile-uikitml] Found 7 .uikitml files to process
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/hud.uikitml
+[compile-uikitml] File content length: 976 characters
+[compile-uikitml] Real parse result for hud.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 4
+[compile-uikitml] Ranges found: 23
+[compile-uikitml] ✅ Compiled: hud.uikitml -> hud.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/leaderboard.uikitml
+[compile-uikitml] File content length: 789 characters
+[compile-uikitml] Real parse result for leaderboard.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 12
+[compile-uikitml] ✅ Compiled: leaderboard.uikitml -> leaderboard.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/pause.uikitml
+[compile-uikitml] File content length: 695 characters
+[compile-uikitml] Real parse result for pause.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 4
+[compile-uikitml] Ranges found: 10
+[compile-uikitml] ✅ Compiled: pause.uikitml -> pause.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/raceover.uikitml
+[compile-uikitml] File content length: 876 characters
+[compile-uikitml] Real parse result for raceover.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 13
+[compile-uikitml] ✅ Compiled: raceover.uikitml -> raceover.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/settings.uikitml
+[compile-uikitml] File content length: 1614 characters
+[compile-uikitml] Real parse result for settings.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 28
+[compile-uikitml] ✅ Compiled: settings.uikitml -> settings.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/title.uikitml
+[compile-uikitml] File content length: 1135 characters
+[compile-uikitml] Real parse result for title.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 4
+[compile-uikitml] Ranges found: 18
+[compile-uikitml] ✅ Compiled: title.uikitml -> title.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/trackselect.uikitml
+[compile-uikitml] File content length: 835 characters
+[compile-uikitml] Real parse result for trackselect.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 12
+[compile-uikitml] ✅ Compiled: trackselect.uikitml -> trackselect.json
+👁️  UIKitML file watcher started - monitoring for changes...
+🚀 IWSDK Dev: Starting injection bundle generation...
+🔄 Loading pre-built IWSDK injection bundle...
+👁️  UIKitML file watcher ready
+✅ IWSDK injection bundle loaded and configured (1116.7KB)
+✅ IWSDK Dev: Injection bundle ready
+12:58:36 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+
+  VITE v7.3.3  ready in 2057 ms
+
+  ➜  Local:   https://localhost:8081/
+  ➜  Network: https://198.19.0.2:8081/
+[RAG-MCP] Server not found, skipping warmup
+💉 IWSDK Dev: Injecting runtime script into HTML
+12:58:56 PM [vite] Internal server error: res.appendHeader is not a function
+      at viteCachedTransformMiddleware (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:24483:8)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+      at next (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10574:4)
+      at cors (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10925:5)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10948:9
+      at originCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10942:8)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10944:27
+      at optionsCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10932:5)
+      at corsMiddleware$2 (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10935:5)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+[browser] Failed to load resource: the server responded with a status of 500 ()
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"id":"1779973145813-7657897f30a9f","method":"screenshot","params":{}}
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"id":"1779973146684-cdd0385df8b29","method":"screenshot","params":{}}
+[IWSDK-MCP] Client disconnected
+[IWSDK-MCP] Client disconnected
+📝 UIKitML file change: ui/hud.uikitml
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-drift/ui/hud.uikitml
+[compile-uikitml] File content length: 1116 characters
+[compile-uikitml] Real parse result for hud.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 27
+[compile-uikitml] ✅ Compiled: hud.uikitml -> hud.json
+✅ UIKitML file recompiled: hud.uikitml
+12:59:18 PM [vite] Internal server error: res.appendHeader is not a function
+      at viteCachedTransformMiddleware (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:24483:8)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+      at next (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10574:4)
+      at cors (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10925:5)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10948:9
+      at originCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10942:8)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10944:27
+      at optionsCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10932:5)
+      at corsMiddleware$2 (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10935:5)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+[browser] Failed to load resource: the server responded with a status of 500 ()
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+❌ IWSDK: Failed to launch browser: page.waitForFunction: Timeout 30000ms exceeded.
+    at launchManagedBrowser (/home/hatch/workspace/immersive-web-sdk/packages/vite-plugin-dev/dist/index.js:200:16)
+    at async file:///home/hatch/workspace/immersive-web-sdk/packages/vite-plugin-dev/dist/index.js:1535:41 {
+  name: 'TimeoutError'
+}
+1:00:39 PM [vite] (client) page reload src/index.ts
+1:00:39 PM [vite] Internal server error: res.appendHeader is not a function
+      at viteCachedTransformMiddleware (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:24483:8)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+      at next (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10574:4)
+      at cors (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10925:5)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10948:9
+      at originCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10942:8)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10944:27
+      at optionsCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10932:5)
+      at corsMiddleware$2 (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10935:5)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+[browser] Failed to load resource: the server responded with a status of 500 ()
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+1:01:17 PM [vite] (client) page reload src/index.ts
+1:01:17 PM [vite] Internal server error: res.appendHeader is not a function
+      at viteCachedTransformMiddleware (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:24483:8)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+      at next (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10574:4)
+      at cors (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10925:5)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10948:9
+      at originCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10942:8)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10944:27
+      at optionsCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10932:5)
+      at corsMiddleware$2 (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10935:5)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+[browser] Failed to load resource: the server responded with a status of 500 ()
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+1:01:35 PM [vite] (client) page reload src/index.ts
+1:01:35 PM [vite] Internal server error: res.appendHeader is not a function
+      at viteCachedTransformMiddleware (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:24483:8)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+      at next (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10574:4)
+      at cors (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10925:5)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10948:9
+      at originCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10942:8)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10944:27
+      at optionsCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10932:5)
+      at corsMiddleware$2 (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10935:5)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+[browser] Failed to load resource: the server responded with a status of 500 ()
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+1:01:44 PM [vite] (client) page reload src/index.ts
+1:01:44 PM [vite] Internal server error: res.appendHeader is not a function
+      at viteCachedTransformMiddleware (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:24483:8)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+      at next (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10574:4)
+      at cors (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10925:5)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10948:9
+      at originCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10942:8)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10944:27
+      at optionsCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10932:5)
+      at corsMiddleware$2 (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10935:5)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+[browser] Failed to load resource: the server responded with a status of 500 ()
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+1:03:08 PM [vite] (client) page reload src/index.ts
+1:03:08 PM [vite] Internal server error: res.appendHeader is not a function
+      at viteCachedTransformMiddleware (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:24483:8)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+      at next (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10574:4)
+      at cors (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10925:5)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10948:9
+      at originCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10942:8)
+      at file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10944:27
+      at optionsCallback (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10932:5)
+      at corsMiddleware$2 (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10935:5)
+      at call (file:///home/hatch/workspace/neon-drift/node_modules/vite/dist/node/chunks/config.js:10621:5)
+[browser] Failed to load resource: the server responded with a status of 500 ()
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
