@@ -1,0 +1,280 @@
+
+> neon-hoops@1.0.0 dev:runtime
+> vite
+
+🔧 IWSDK Dev Configuration:
+  - Device: metaQuest3
+  - SEM: disabled
+  - AI: enabled (agent mode)
+  - Activation: localhost
+  - UA exception: enabled
+  - Inject on build: false
+[compile-uikitml] Plugin initialized with options: {
+  sourceDir: 'ui',
+  outputDir: 'public/ui',
+  watch: true,
+  verbose: true,
+  include: /\.uikitml$/
+}
+[compile-uikitml] Vite command: serve
+[compile-uikitml] Vite mode: development
+🔌 IWSDK-MCP: WebSocket endpoint registered at /__iwer_mcp
+🔍 UIKitML watcher monitoring: /home/hatch/workspace/neon-hoops/ui
+🚀 Generating initial UIKitML files for dev server...
+[compile-uikitml] Found 14 .uikitml files to process
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/achievements.uikitml
+[compile-uikitml] File content length: 3652 characters
+[compile-uikitml] Real parse result for achievements.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 61
+[compile-uikitml] ✅ Compiled: achievements.uikitml -> achievements.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/ballselect.uikitml
+[compile-uikitml] File content length: 1732 characters
+[compile-uikitml] Real parse result for ballselect.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 20
+[compile-uikitml] ✅ Compiled: ballselect.uikitml -> ballselect.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/countdown.uikitml
+[compile-uikitml] File content length: 614 characters
+[compile-uikitml] Real parse result for countdown.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 3
+[compile-uikitml] Ranges found: 6
+[compile-uikitml] ✅ Compiled: countdown.uikitml -> countdown.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/difficulty.uikitml
+[compile-uikitml] File content length: 1726 characters
+[compile-uikitml] Real parse result for difficulty.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 14
+[compile-uikitml] ✅ Compiled: difficulty.uikitml -> difficulty.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/gameover.uikitml
+[compile-uikitml] File content length: 2032 characters
+[compile-uikitml] Real parse result for gameover.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 7
+[compile-uikitml] Ranges found: 24
+[compile-uikitml] ✅ Compiled: gameover.uikitml -> gameover.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/help.uikitml
+[compile-uikitml] File content length: 2418 characters
+[compile-uikitml] Real parse result for help.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 30
+[compile-uikitml] ✅ Compiled: help.uikitml -> help.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/hud.uikitml
+[compile-uikitml] File content length: 1349 characters
+[compile-uikitml] Real parse result for hud.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 7
+[compile-uikitml] Ranges found: 20
+[compile-uikitml] ✅ Compiled: hud.uikitml -> hud.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/leaderboard.uikitml
+[compile-uikitml] File content length: 3419 characters
+[compile-uikitml] Real parse result for leaderboard.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 62
+[compile-uikitml] ✅ Compiled: leaderboard.uikitml -> leaderboard.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/modeselect.uikitml
+[compile-uikitml] File content length: 2215 characters
+[compile-uikitml] Real parse result for modeselect.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 20
+[compile-uikitml] ✅ Compiled: modeselect.uikitml -> modeselect.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/pause.uikitml
+[compile-uikitml] File content length: 997 characters
+[compile-uikitml] Real parse result for pause.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 3
+[compile-uikitml] Ranges found: 7
+[compile-uikitml] ✅ Compiled: pause.uikitml -> pause.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/powerbar.uikitml
+[compile-uikitml] File content length: 702 characters
+[compile-uikitml] Real parse result for powerbar.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 4
+[compile-uikitml] Ranges found: 8
+[compile-uikitml] ✅ Compiled: powerbar.uikitml -> powerbar.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/settings.uikitml
+[compile-uikitml] File content length: 3031 characters
+[compile-uikitml] Real parse result for settings.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 8
+[compile-uikitml] Ranges found: 35
+[compile-uikitml] ✅ Compiled: settings.uikitml -> settings.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/title.uikitml
+[compile-uikitml] File content length: 1804 characters
+[compile-uikitml] Real parse result for title.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 14
+[compile-uikitml] ✅ Compiled: title.uikitml -> title.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/toast.uikitml
+[compile-uikitml] File content length: 595 characters
+[compile-uikitml] Real parse result for toast.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 3
+[compile-uikitml] Ranges found: 6
+[compile-uikitml] ✅ Compiled: toast.uikitml -> toast.json
+👁️  UIKitML file watcher started - monitoring for changes...
+🚀 IWSDK Dev: Starting injection bundle generation...
+🔄 Loading pre-built IWSDK injection bundle...
+👁️  UIKitML file watcher ready
+✅ IWSDK injection bundle loaded and configured (1116.7KB)
+✅ IWSDK Dev: Injection bundle ready
+11:05:31 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+
+  VITE v7.3.3  ready in 1956 ms
+
+  ➜  Local:   https://localhost:8081/
+  ➜  Network: https://198.19.0.2:8081/
+[RAG-MCP] Server not found, skipping warmup
+💉 IWSDK Dev: Injecting runtime script into HTML
+[browser:debug] [vite] connecting...
+[browser:log] [IWSDK Dev] Configuration: {device: metaQuest3, activation: localhost, verbose: true, sem: null, ai: Object}
+[browser:log] [IWSDK Dev] 🎯 Activating IWER runtime...
+[browser:log] [IWSDK Dev] 📱 Using device configuration: metaQuest3
+[browser:log] [IWSDK Dev] 🔌 Initializing MCP client...
+[browser:log] [IWSDK-MCP] Connecting to: wss://localhost:8081/__iwer_mcp
+[browser:log] [IWSDK Dev] ✅ MCP client initialized
+[browser:log] [IWSDK Dev] ✅ Runtime activated successfully!
+[browser:debug] [vite] connected.
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"type":"iwsdk_browser_hello","tabId":"tab-mpltedmw-jtbdep","tabGeneration":1}
+[browser:log] [IWSDK-MCP] Connected
+[browser:warning] THREE.WARNING: Multiple instances of Three.js being imported.
+[browser:log]                                                  
+▄▄▄▄▄▄  ▄▄      ▄▄   ▄▄▄▄    ▄▄▄▄▄     ▄▄   ▄▄▄ 
+▀▀██▀▀  ██      ██ ▄█▀▀▀▀█   ██▀▀▀██   ██  ██▀  
+  ██    ▀█▄ ██ ▄█▀ ██▄       ██    ██  ██▄██    
+  ██     ██ ██ ██   ▀████▄   ██    ██  █████    
+  ██     ███▀▀███       ▀██  ██    ██  ██  ██▄  
+▄▄██▄▄   ███  ███  █▄▄▄▄▄█▀  ██▄▄▄██   ██   ██▄ 
+▀▀▀▀▀▀   ▀▀▀  ▀▀▀   ▀▀▀▀▀    ▀▀▀▀▀     ▀▀    ▀▀                                                
+===============================================
+Immersive Web SDK v0.3.1
+Three.js r181
+EliCS v3.4.2
+[browser:warning] [.WebGL-0x13cc0013ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"id":"1779750345547-05d9359069ac2","method":"screenshot","params":{}}
+[IWSDK-MCP] Client disconnected
+[browser:warning] [.WebGL-0x13cc0013ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[browser:warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[browser:warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[browser:warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[browser:warning] [.WebGL-0x13cc0013ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[browser] Error: Invalid Yoga point: 1 3
+    at convertYogaPoint (https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:23118:9)
+    at convertPoint (https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:25495:10)
+    at Object.paddingBottom (https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:25696:24)
+    at E.<anonymous> (https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:25764:22)
+    at E.c (https://localhost:8081/node_modules/.vite/deps/chunk-H7J63S3N.js?v=b7dba778:348:19)
+    at j (https://localhost:8081/node_modules/.vite/deps/chunk-H7J63S3N.js?v=b7dba778:382:8)
+    at abortableEffect (https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:36167:23)
+    at https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:25763:9
+    at PropertiesImplementation2.subscribePropertyKeys (https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:26194:7)
+    at E.x (https://localhost:8081/node_modules/.vite/deps/chunk-6DN6MYAX.js?v=b7dba778:25759:48)
+[browser:warning] [.WebGL-0x13cc0013ac00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+🖥️  IWSDK: Headless browser launched
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"id":"1779750351986-3dd4d08bcb16b","method":"get_console_logs","params":{}}
+[IWSDK-MCP] Client disconnected
+📝 UIKitML file change: ui/ballselect.uikitml
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/ballselect.uikitml
+[compile-uikitml] File content length: 1802 characters
+[compile-uikitml] Real parse result for ballselect.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 20
+[compile-uikitml] ✅ Compiled: ballselect.uikitml -> ballselect.json
+✅ UIKitML file recompiled: ballselect.uikitml
+💉 IWSDK Dev: Injecting runtime script into HTML
+[IWSDK-MCP] Client disconnected
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+[browser:log] [IWSDK Dev] Configuration: {device: metaQuest3, activation: localhost, verbose: true, sem: null, ai: Object}
+[browser:log] [IWSDK Dev] 🎯 Activating IWER runtime...
+[browser:log] [IWSDK Dev] 📱 Using device configuration: metaQuest3
+[browser:log] [IWSDK Dev] 🔌 Initializing MCP client...
+[browser:log] [IWSDK-MCP] Connecting to: wss://localhost:8081/__iwer_mcp
+[browser:log] [IWSDK Dev] ✅ MCP client initialized
+[browser:log] [IWSDK Dev] ✅ Runtime activated successfully!
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"type":"iwsdk_browser_hello","tabId":"tab-mpltedmw-jtbdep","tabGeneration":2}
+[browser:log] [IWSDK-MCP] Connected
+[browser:warning] THREE.WARNING: Multiple instances of Three.js being imported.
+[browser:log]                                                  
+▄▄▄▄▄▄  ▄▄      ▄▄   ▄▄▄▄    ▄▄▄▄▄     ▄▄   ▄▄▄ 
+▀▀██▀▀  ██      ██ ▄█▀▀▀▀█   ██▀▀▀██   ██  ██▀  
+  ██    ▀█▄ ██ ▄█▀ ██▄       ██    ██  ██▄██    
+  ██     ██ ██ ██   ▀████▄   ██    ██  █████    
+  ██     ███▀▀███       ▀██  ██    ██  ██  ██▄  
+▄▄██▄▄   ███  ███  █▄▄▄▄▄█▀  ██▄▄▄██   ██   ██▄ 
+▀▀▀▀▀▀   ▀▀▀  ▀▀▀   ▀▀▀▀▀    ▀▀▀▀▀     ▀▀    ▀▀                                                
+===============================================
+Immersive Web SDK v0.3.1
+Three.js r181
+EliCS v3.4.2
+📝 UIKitML file change: ui/ballselect.uikitml
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/ballselect.uikitml
+[compile-uikitml] File content length: 1870 characters
+[compile-uikitml] Real parse result for ballselect.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 20
+[compile-uikitml] ✅ Compiled: ballselect.uikitml -> ballselect.json
+✅ UIKitML file recompiled: ballselect.uikitml
+💉 IWSDK Dev: Injecting runtime script into HTML
+[IWSDK-MCP] Client disconnected
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+[browser:log] [IWSDK Dev] Configuration: {device: metaQuest3, activation: localhost, verbose: true, sem: null, ai: Object}
+[browser:log] [IWSDK Dev] 🎯 Activating IWER runtime...
+[browser:log] [IWSDK Dev] 📱 Using device configuration: metaQuest3
+[browser:log] [IWSDK Dev] 🔌 Initializing MCP client...
+[browser:log] [IWSDK-MCP] Connecting to: wss://localhost:8081/__iwer_mcp
+[browser:log] [IWSDK Dev] ✅ MCP client initialized
+[browser:log] [IWSDK Dev] ✅ Runtime activated successfully!
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"type":"iwsdk_browser_hello","tabId":"tab-mpltedmw-jtbdep","tabGeneration":3}
+[browser:log] [IWSDK-MCP] Connected
+[browser:warning] THREE.WARNING: Multiple instances of Three.js being imported.
+[browser:log]                                                  
+▄▄▄▄▄▄  ▄▄      ▄▄   ▄▄▄▄    ▄▄▄▄▄     ▄▄   ▄▄▄ 
+▀▀██▀▀  ██      ██ ▄█▀▀▀▀█   ██▀▀▀██   ██  ██▀  
+  ██    ▀█▄ ██ ▄█▀ ██▄       ██    ██  ██▄██    
+  ██     ██ ██ ██   ▀████▄   ██    ██  █████    
+  ██     ███▀▀███       ▀██  ██    ██  ██  ██▄  
+▄▄██▄▄   ███  ███  █▄▄▄▄▄█▀  ██▄▄▄██   ██   ██▄ 
+▀▀▀▀▀▀   ▀▀▀  ▀▀▀   ▀▀▀▀▀    ▀▀▀▀▀     ▀▀    ▀▀                                                
+===============================================
+Immersive Web SDK v0.3.1
+Three.js r181
+EliCS v3.4.2
+[IWSDK-MCP] Client disconnected
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1116.7KB
+  - Activation mode: localhost
+  - AI: agent mode (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1116.7KB
+  - Activation mode: localhost
+  - AI: agent mode (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+

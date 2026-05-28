@@ -1,0 +1,510 @@
+{
+  "element": {
+    "type": "container",
+    "sourceTag": "div",
+    "children": [
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "GAME OVER"
+        ],
+        "properties": {
+          "id": "go-title",
+          "class": "gameover-title"
+        },
+        "dataUid": "uid-2"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Nice shooting!"
+        ],
+        "properties": {
+          "id": "go-subtitle",
+          "class": "gameover-subtitle"
+        },
+        "dataUid": "uid-3"
+      },
+      {
+        "type": "container",
+        "sourceTag": "div",
+        "children": [
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "Score"
+            ],
+            "properties": {
+              "class": "stat-label"
+            },
+            "dataUid": "uid-5"
+          },
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "0"
+            ],
+            "properties": {
+              "id": "go-score",
+              "class": "stat-value"
+            },
+            "dataUid": "uid-6"
+          }
+        ],
+        "properties": {
+          "class": "stat-row"
+        },
+        "dataUid": "uid-4"
+      },
+      {
+        "type": "container",
+        "sourceTag": "div",
+        "children": [
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "Shots Made"
+            ],
+            "properties": {
+              "class": "stat-label"
+            },
+            "dataUid": "uid-8"
+          },
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "0/0"
+            ],
+            "properties": {
+              "id": "go-made",
+              "class": "stat-value"
+            },
+            "dataUid": "uid-9"
+          }
+        ],
+        "properties": {
+          "class": "stat-row"
+        },
+        "dataUid": "uid-7"
+      },
+      {
+        "type": "container",
+        "sourceTag": "div",
+        "children": [
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "Accuracy"
+            ],
+            "properties": {
+              "class": "stat-label"
+            },
+            "dataUid": "uid-11"
+          },
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "0%"
+            ],
+            "properties": {
+              "id": "go-accuracy",
+              "class": "stat-value"
+            },
+            "dataUid": "uid-12"
+          }
+        ],
+        "properties": {
+          "class": "stat-row"
+        },
+        "dataUid": "uid-10"
+      },
+      {
+        "type": "container",
+        "sourceTag": "div",
+        "children": [
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "Best Streak"
+            ],
+            "properties": {
+              "class": "stat-label"
+            },
+            "dataUid": "uid-14"
+          },
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "0"
+            ],
+            "properties": {
+              "id": "go-streak",
+              "class": "stat-value"
+            },
+            "dataUid": "uid-15"
+          }
+        ],
+        "properties": {
+          "class": "stat-row"
+        },
+        "dataUid": "uid-13"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "PLAY AGAIN"
+        ],
+        "properties": {
+          "id": "btn-replay",
+          "class": "gameover-btn",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-16"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "MAIN MENU"
+        ],
+        "properties": {
+          "id": "btn-menu",
+          "class": "gameover-btn",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-17"
+      }
+    ],
+    "properties": {
+      "class": "gameover-panel"
+    },
+    "dataUid": "uid-1"
+  },
+  "classes": {
+    "gameover-panel": {
+      "content": {
+        "display": "flex",
+        "flexDirection": "column",
+        "alignItems": "center",
+        "paddingTop": "3",
+        "paddingBottom": "3",
+        "paddingLeft": "5",
+        "paddingRight": "5",
+        "backgroundColor": "rgba(0, 0, 0, 0.9)",
+        "borderColor": "#ff6600",
+        "borderWidth": "0.12",
+        "borderRadius": 1.5
+      }
+    },
+    "gameover-title": {
+      "content": {
+        "fontSize": "4",
+        "color": "#ff6600",
+        "fontWeight": "bold",
+        "marginBottom": "1"
+      }
+    },
+    "gameover-subtitle": {
+      "content": {
+        "fontSize": "1.6",
+        "color": "#ffaa44",
+        "marginBottom": "2"
+      }
+    },
+    "stat-row": {
+      "content": {
+        "display": "flex",
+        "flexDirection": "row",
+        "width": "100%",
+        "marginBottom": "0.5"
+      }
+    },
+    "stat-label": {
+      "content": {
+        "fontSize": "1.5",
+        "color": "#888888",
+        "width": "50%"
+      }
+    },
+    "stat-value": {
+      "content": {
+        "fontSize": "1.5",
+        "color": "#ffffff",
+        "fontWeight": "bold",
+        "width": "50%",
+        "alignItems": "flex-end"
+      }
+    },
+    "gameover-btn": {
+      "content": {
+        "fontSize": "2",
+        "color": "#ffffff",
+        "backgroundColor": "rgba(255, 102, 0, 0.3)",
+        "borderColor": "#ff6600",
+        "borderWidth": "0.06",
+        "borderRadius": 0.6,
+        "paddingTop": "0.8",
+        "paddingBottom": "0.8",
+        "paddingLeft": "3",
+        "paddingRight": "3",
+        "marginTop": "0.5",
+        "cursor": "pointer",
+        "width": "100%",
+        "alignItems": "center"
+      }
+    }
+  },
+  "ranges": {
+    "gameover-panel": {
+      "start": {
+        "line": 1,
+        "column": 2
+      },
+      "end": {
+        "line": 1,
+        "column": 17
+      }
+    },
+    "gameover-title": {
+      "start": {
+        "line": 14,
+        "column": 2
+      },
+      "end": {
+        "line": 14,
+        "column": 17
+      }
+    },
+    "gameover-subtitle": {
+      "start": {
+        "line": 20,
+        "column": 2
+      },
+      "end": {
+        "line": 20,
+        "column": 20
+      }
+    },
+    "stat-row": {
+      "start": {
+        "line": 25,
+        "column": 2
+      },
+      "end": {
+        "line": 25,
+        "column": 11
+      }
+    },
+    "stat-label": {
+      "start": {
+        "line": 31,
+        "column": 2
+      },
+      "end": {
+        "line": 31,
+        "column": 13
+      }
+    },
+    "stat-value": {
+      "start": {
+        "line": 36,
+        "column": 2
+      },
+      "end": {
+        "line": 36,
+        "column": 13
+      }
+    },
+    "gameover-btn": {
+      "start": {
+        "line": 43,
+        "column": 2
+      },
+      "end": {
+        "line": 43,
+        "column": 15
+      }
+    },
+    "uid-1": {
+      "start": {
+        "line": 60,
+        "column": 0
+      },
+      "end": {
+        "line": 81,
+        "column": 6
+      }
+    },
+    "uid-2": {
+      "start": {
+        "line": 61,
+        "column": 2
+      },
+      "end": {
+        "line": 61,
+        "column": 61
+      }
+    },
+    "uid-3": {
+      "start": {
+        "line": 62,
+        "column": 2
+      },
+      "end": {
+        "line": 62,
+        "column": 72
+      }
+    },
+    "uid-4": {
+      "start": {
+        "line": 63,
+        "column": 2
+      },
+      "end": {
+        "line": 66,
+        "column": 8
+      }
+    },
+    "uid-5": {
+      "start": {
+        "line": 64,
+        "column": 4
+      },
+      "end": {
+        "line": 64,
+        "column": 41
+      }
+    },
+    "uid-6": {
+      "start": {
+        "line": 65,
+        "column": 4
+      },
+      "end": {
+        "line": 65,
+        "column": 51
+      }
+    },
+    "uid-7": {
+      "start": {
+        "line": 67,
+        "column": 2
+      },
+      "end": {
+        "line": 70,
+        "column": 8
+      }
+    },
+    "uid-8": {
+      "start": {
+        "line": 68,
+        "column": 4
+      },
+      "end": {
+        "line": 68,
+        "column": 46
+      }
+    },
+    "uid-9": {
+      "start": {
+        "line": 69,
+        "column": 4
+      },
+      "end": {
+        "line": 69,
+        "column": 52
+      }
+    },
+    "uid-10": {
+      "start": {
+        "line": 71,
+        "column": 2
+      },
+      "end": {
+        "line": 74,
+        "column": 8
+      }
+    },
+    "uid-11": {
+      "start": {
+        "line": 72,
+        "column": 4
+      },
+      "end": {
+        "line": 72,
+        "column": 44
+      }
+    },
+    "uid-12": {
+      "start": {
+        "line": 73,
+        "column": 4
+      },
+      "end": {
+        "line": 73,
+        "column": 55
+      }
+    },
+    "uid-13": {
+      "start": {
+        "line": 75,
+        "column": 2
+      },
+      "end": {
+        "line": 78,
+        "column": 8
+      }
+    },
+    "uid-14": {
+      "start": {
+        "line": 76,
+        "column": 4
+      },
+      "end": {
+        "line": 76,
+        "column": 47
+      }
+    },
+    "uid-15": {
+      "start": {
+        "line": 77,
+        "column": 4
+      },
+      "end": {
+        "line": 77,
+        "column": 52
+      }
+    },
+    "uid-16": {
+      "start": {
+        "line": 79,
+        "column": 2
+      },
+      "end": {
+        "line": 79,
+        "column": 79
+      }
+    },
+    "uid-17": {
+      "start": {
+        "line": 80,
+        "column": 2
+      },
+      "end": {
+        "line": 80,
+        "column": 76
+      }
+    }
+  }
+}

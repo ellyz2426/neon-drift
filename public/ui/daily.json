@@ -1,0 +1,325 @@
+{
+  "element": {
+    "type": "container",
+    "sourceTag": "div",
+    "children": [
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "DAILY CHALLENGE"
+        ],
+        "properties": {
+          "class": "daily-title"
+        },
+        "dataUid": "uid-2"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "May 25, 2026"
+        ],
+        "properties": {
+          "id": "daily-date",
+          "class": "daily-date"
+        },
+        "dataUid": "uid-3"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "10 shots from random positions. Same challenge for everyone today!"
+        ],
+        "properties": {
+          "class": "daily-desc"
+        },
+        "dataUid": "uid-4"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Best: --"
+        ],
+        "properties": {
+          "id": "daily-best",
+          "class": "daily-best"
+        },
+        "dataUid": "uid-5"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [],
+        "properties": {
+          "id": "daily-shot",
+          "class": "daily-shot-label"
+        },
+        "dataUid": "uid-6"
+      },
+      {
+        "sourceTag": "button",
+        "type": "custom",
+        "children": [
+          "PLAY TODAY"
+        ],
+        "properties": {
+          "id": "btn-daily-play",
+          "class": "daily-btn",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-7"
+      },
+      {
+        "sourceTag": "button",
+        "type": "custom",
+        "children": [
+          "< BACK"
+        ],
+        "properties": {
+          "id": "btn-daily-back",
+          "class": "daily-back-btn",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-8"
+      }
+    ],
+    "properties": {
+      "class": "daily-panel"
+    },
+    "dataUid": "uid-1"
+  },
+  "classes": {
+    "daily-panel": {
+      "content": {
+        "display": "flex",
+        "flexDirection": "column",
+        "alignItems": "center",
+        "padding": "3",
+        "backgroundColor": "rgba(0, 8, 20, 0.95)",
+        "borderColor": "#ff8800",
+        "borderWidth": "0.15",
+        "borderRadius": 1.5,
+        "gap": "1"
+      }
+    },
+    "daily-title": {
+      "content": {
+        "fontSize": "3.5",
+        "color": "#ff8800",
+        "fontWeight": "bold"
+      }
+    },
+    "daily-date": {
+      "content": {
+        "fontSize": "1.8",
+        "color": "#ffaa44"
+      }
+    },
+    "daily-desc": {
+      "content": {
+        "fontSize": "1.4",
+        "color": "#aaaaaa",
+        "textAlign": "center"
+      }
+    },
+    "daily-best": {
+      "content": {
+        "fontSize": "1.6",
+        "color": "#ffcc00"
+      }
+    },
+    "daily-shot-label": {
+      "content": {
+        "fontSize": "1.5",
+        "color": "#88ccff"
+      }
+    },
+    "daily-btn": {
+      "content": {
+        "fontSize": "2",
+        "color": "#ffffff",
+        "backgroundColor": "rgba(255, 136, 0, 0.3)",
+        "borderColor": "#ff8800",
+        "borderWidth": "0.1",
+        "borderRadius": 0.8,
+        "paddingTop": "0.8",
+        "paddingBottom": "0.8",
+        "paddingLeft": "3",
+        "paddingRight": "3",
+        "cursor": "pointer"
+      }
+    },
+    "daily-back-btn": {
+      "content": {
+        "fontSize": "1.5",
+        "color": "#888888",
+        "cursor": "pointer"
+      }
+    }
+  },
+  "ranges": {
+    "daily-panel": {
+      "start": {
+        "line": 1,
+        "column": 2
+      },
+      "end": {
+        "line": 1,
+        "column": 14
+      }
+    },
+    "daily-title": {
+      "start": {
+        "line": 12,
+        "column": 2
+      },
+      "end": {
+        "line": 12,
+        "column": 14
+      }
+    },
+    "daily-date": {
+      "start": {
+        "line": 17,
+        "column": 2
+      },
+      "end": {
+        "line": 17,
+        "column": 13
+      }
+    },
+    "daily-desc": {
+      "start": {
+        "line": 21,
+        "column": 2
+      },
+      "end": {
+        "line": 21,
+        "column": 13
+      }
+    },
+    "daily-best": {
+      "start": {
+        "line": 26,
+        "column": 2
+      },
+      "end": {
+        "line": 26,
+        "column": 13
+      }
+    },
+    "daily-shot-label": {
+      "start": {
+        "line": 30,
+        "column": 2
+      },
+      "end": {
+        "line": 30,
+        "column": 19
+      }
+    },
+    "daily-btn": {
+      "start": {
+        "line": 34,
+        "column": 2
+      },
+      "end": {
+        "line": 34,
+        "column": 12
+      }
+    },
+    "daily-back-btn": {
+      "start": {
+        "line": 47,
+        "column": 2
+      },
+      "end": {
+        "line": 47,
+        "column": 17
+      }
+    },
+    "uid-1": {
+      "start": {
+        "line": 53,
+        "column": 0
+      },
+      "end": {
+        "line": 61,
+        "column": 6
+      }
+    },
+    "uid-2": {
+      "start": {
+        "line": 54,
+        "column": 2
+      },
+      "end": {
+        "line": 54,
+        "column": 50
+      }
+    },
+    "uid-3": {
+      "start": {
+        "line": 55,
+        "column": 2
+      },
+      "end": {
+        "line": 55,
+        "column": 62
+      }
+    },
+    "uid-4": {
+      "start": {
+        "line": 56,
+        "column": 2
+      },
+      "end": {
+        "line": 56,
+        "column": 100
+      }
+    },
+    "uid-5": {
+      "start": {
+        "line": 57,
+        "column": 2
+      },
+      "end": {
+        "line": 57,
+        "column": 58
+      }
+    },
+    "uid-6": {
+      "start": {
+        "line": 58,
+        "column": 2
+      },
+      "end": {
+        "line": 58,
+        "column": 56
+      }
+    },
+    "uid-7": {
+      "start": {
+        "line": 59,
+        "column": 2
+      },
+      "end": {
+        "line": 59,
+        "column": 84
+      }
+    },
+    "uid-8": {
+      "start": {
+        "line": 60,
+        "column": 2
+      },
+      "end": {
+        "line": 60,
+        "column": 85
+      }
+    }
+  }
+}

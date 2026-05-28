@@ -1,0 +1,249 @@
+{
+  "element": {
+    "type": "container",
+    "sourceTag": "div",
+    "children": [
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "SELECT TRACK"
+        ],
+        "properties": {
+          "class": "title"
+        },
+        "dataUid": "uid-2"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Holodeck Loop"
+        ],
+        "properties": {
+          "id": "track_name",
+          "class": "track"
+        },
+        "dataUid": "uid-3"
+      },
+      {
+        "sourceTag": "button",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "START RACE"
+            ],
+            "properties": {
+              "class": "btn-text"
+            },
+            "dataUid": "uid-5"
+          }
+        ],
+        "properties": {
+          "id": "btn_start",
+          "class": "btn",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-4"
+      },
+      {
+        "sourceTag": "button",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "BACK"
+            ],
+            "properties": {
+              "class": "btn-text"
+            },
+            "dataUid": "uid-7"
+          }
+        ],
+        "properties": {
+          "id": "btn_back",
+          "class": "btn",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-6"
+      }
+    ],
+    "properties": {
+      "class": "panel"
+    },
+    "dataUid": "uid-1"
+  },
+  "classes": {
+    "panel": {
+      "content": {
+        "display": "flex",
+        "flexDirection": "column",
+        "padding": "20",
+        "backgroundColor": "rgba(0,0,0,0.85)",
+        "borderColor": "#00ffff",
+        "borderWidth": "2",
+        "borderRadius": 12
+      }
+    },
+    "title": {
+      "content": {
+        "fontSize": "28",
+        "color": "#00ffff",
+        "textAlign": "center",
+        "marginBottom": "16"
+      }
+    },
+    "track": {
+      "content": {
+        "fontSize": "22",
+        "color": "#ffffff",
+        "textAlign": "center",
+        "marginBottom": "12"
+      }
+    },
+    "btn": {
+      "content": {
+        "padding": "12",
+        "backgroundColor": "#001133",
+        "borderColor": "#00ffff",
+        "borderWidth": "2",
+        "borderRadius": 8,
+        "margin": "8"
+      }
+    },
+    "btn-text": {
+      "content": {
+        "fontSize": "18",
+        "color": "#00ffff",
+        "textAlign": "center"
+      }
+    }
+  },
+  "ranges": {
+    "panel": {
+      "start": {
+        "line": 1,
+        "column": 2
+      },
+      "end": {
+        "line": 1,
+        "column": 8
+      }
+    },
+    "title": {
+      "start": {
+        "line": 2,
+        "column": 2
+      },
+      "end": {
+        "line": 2,
+        "column": 8
+      }
+    },
+    "track": {
+      "start": {
+        "line": 3,
+        "column": 2
+      },
+      "end": {
+        "line": 3,
+        "column": 8
+      }
+    },
+    "btn": {
+      "start": {
+        "line": 4,
+        "column": 2
+      },
+      "end": {
+        "line": 4,
+        "column": 6
+      }
+    },
+    "btn-text": {
+      "start": {
+        "line": 5,
+        "column": 2
+      },
+      "end": {
+        "line": 5,
+        "column": 11
+      }
+    },
+    "uid-1": {
+      "start": {
+        "line": 7,
+        "column": 0
+      },
+      "end": {
+        "line": 12,
+        "column": 6
+      }
+    },
+    "uid-2": {
+      "start": {
+        "line": 8,
+        "column": 2
+      },
+      "end": {
+        "line": 8,
+        "column": 41
+      }
+    },
+    "uid-3": {
+      "start": {
+        "line": 9,
+        "column": 2
+      },
+      "end": {
+        "line": 9,
+        "column": 58
+      }
+    },
+    "uid-4": {
+      "start": {
+        "line": 10,
+        "column": 2
+      },
+      "end": {
+        "line": 10,
+        "column": 103
+      }
+    },
+    "uid-5": {
+      "start": {
+        "line": 10,
+        "column": 54
+      },
+      "end": {
+        "line": 10,
+        "column": 94
+      }
+    },
+    "uid-6": {
+      "start": {
+        "line": 11,
+        "column": 2
+      },
+      "end": {
+        "line": 11,
+        "column": 96
+      }
+    },
+    "uid-7": {
+      "start": {
+        "line": 11,
+        "column": 53
+      },
+      "end": {
+        "line": 11,
+        "column": 87
+      }
+    }
+  }
+}

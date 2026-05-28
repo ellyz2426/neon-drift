@@ -1,0 +1,11 @@
+<style>
+  .panel { display:flex; flex-direction:column; padding:20; background-color:rgba(0,0,0,0.9); border-color:#ff00ff; border-width:2; border-radius:12; }
+  .title { font-size:28; color:#ff00ff; text-align:center; margin-bottom:20; }
+  .btn { padding:12; background-color:#220022; border-color:#ff00ff; border-width:2; border-radius:8; margin:8; }
+  .btn-text { font-size:18; color:#ff88ff; text-align:center; }
+</style>
+<div class="panel">
+  <span class="title">PAUSED</span>
+  <button id="btn_resume" class="btn" cursor="pointer"><span class="btn-text">RESUME</span></button>
+  <button id="btn_quit" class="btn" cursor="pointer"><span class="btn-text">QUIT TO MENU</span></button>
+</div>

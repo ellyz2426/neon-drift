@@ -1,0 +1,12 @@
+<style>
+  .panel { display:flex; flex-direction:column; padding:20; background-color:rgba(0,0,0,0.85); border-color:#00ffff; border-width:2; border-radius:12; }
+  .title { font-size:32; color:#00ffff; text-align:center; margin-bottom:20; }
+  .btn { padding:12; background-color:#001133; border-color:#00ffff; border-width:2; border-radius:8; margin:8; }
+  .btn-text { font-size:20; color:#00ffff; text-align:center; }
+</style>
+<div class="panel">
+  <span class="title">NEON DRIFT VR</span>
+  <button id="btn-play" class="btn" cursor="pointer"><span class="btn-text">PLAY</span></button>
+  <button id="btn-leaderboard" class="btn" cursor="pointer"><span class="btn-text">LEADERBOARD</span></button>
+  <button id="btn-settings" class="btn" cursor="pointer"><span class="btn-text">SETTINGS</span></button>
+</div>

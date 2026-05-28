@@ -1,0 +1,208 @@
+
+> neon-hoops@1.0.0 dev:runtime
+> vite
+
+🔧 IWSDK Dev Configuration:
+  - Device: metaQuest3
+  - SEM: disabled
+  - AI: enabled (agent mode)
+  - Activation: localhost
+  - UA exception: enabled
+  - Inject on build: false
+[compile-uikitml] Plugin initialized with options: {
+  sourceDir: 'ui',
+  outputDir: 'public/ui',
+  watch: true,
+  verbose: true,
+  include: /\.uikitml$/
+}
+[compile-uikitml] Vite command: serve
+[compile-uikitml] Vite mode: development
+🔌 IWSDK-MCP: WebSocket endpoint registered at /__iwer_mcp
+🔍 UIKitML watcher monitoring: /home/hatch/workspace/neon-hoops/ui
+🚀 Generating initial UIKitML files for dev server...
+[compile-uikitml] Found 16 .uikitml files to process
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/achievements.uikitml
+[compile-uikitml] File content length: 4787 characters
+[compile-uikitml] Real parse result for achievements.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 8
+[compile-uikitml] Ranges found: 92
+[compile-uikitml] ✅ Compiled: achievements.uikitml -> achievements.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/ballselect.uikitml
+[compile-uikitml] File content length: 1870 characters
+[compile-uikitml] Real parse result for ballselect.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 20
+[compile-uikitml] ✅ Compiled: ballselect.uikitml -> ballselect.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/countdown.uikitml
+[compile-uikitml] File content length: 614 characters
+[compile-uikitml] Real parse result for countdown.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 3
+[compile-uikitml] Ranges found: 6
+[compile-uikitml] ✅ Compiled: countdown.uikitml -> countdown.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/daily.uikitml
+[compile-uikitml] File content length: 1519 characters
+[compile-uikitml] Real parse result for daily.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 8
+[compile-uikitml] Ranges found: 16
+[compile-uikitml] ✅ Compiled: daily.uikitml -> daily.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/difficulty.uikitml
+[compile-uikitml] File content length: 1726 characters
+[compile-uikitml] Real parse result for difficulty.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 14
+[compile-uikitml] ✅ Compiled: difficulty.uikitml -> difficulty.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/gameover.uikitml
+[compile-uikitml] File content length: 2032 characters
+[compile-uikitml] Real parse result for gameover.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 7
+[compile-uikitml] Ranges found: 24
+[compile-uikitml] ✅ Compiled: gameover.uikitml -> gameover.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/help.uikitml
+[compile-uikitml] File content length: 2820 characters
+[compile-uikitml] Real parse result for help.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 35
+[compile-uikitml] ✅ Compiled: help.uikitml -> help.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/hud.uikitml
+[compile-uikitml] File content length: 1349 characters
+[compile-uikitml] Real parse result for hud.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 7
+[compile-uikitml] Ranges found: 20
+[compile-uikitml] ✅ Compiled: hud.uikitml -> hud.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/leaderboard.uikitml
+[compile-uikitml] File content length: 3419 characters
+[compile-uikitml] Real parse result for leaderboard.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 9
+[compile-uikitml] Ranges found: 62
+[compile-uikitml] ✅ Compiled: leaderboard.uikitml -> leaderboard.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/modeselect.uikitml
+[compile-uikitml] File content length: 2375 characters
+[compile-uikitml] Real parse result for modeselect.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 22
+[compile-uikitml] ✅ Compiled: modeselect.uikitml -> modeselect.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/pause.uikitml
+[compile-uikitml] File content length: 997 characters
+[compile-uikitml] Real parse result for pause.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 3
+[compile-uikitml] Ranges found: 7
+[compile-uikitml] ✅ Compiled: pause.uikitml -> pause.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/powerbar.uikitml
+[compile-uikitml] File content length: 702 characters
+[compile-uikitml] Real parse result for powerbar.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 4
+[compile-uikitml] Ranges found: 8
+[compile-uikitml] ✅ Compiled: powerbar.uikitml -> powerbar.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/settings.uikitml
+[compile-uikitml] File content length: 3031 characters
+[compile-uikitml] Real parse result for settings.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 8
+[compile-uikitml] Ranges found: 35
+[compile-uikitml] ✅ Compiled: settings.uikitml -> settings.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/stats.uikitml
+[compile-uikitml] File content length: 2634 characters
+[compile-uikitml] Real parse result for stats.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 8
+[compile-uikitml] Ranges found: 44
+[compile-uikitml] ✅ Compiled: stats.uikitml -> stats.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/title.uikitml
+[compile-uikitml] File content length: 1885 characters
+[compile-uikitml] Real parse result for title.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 5
+[compile-uikitml] Ranges found: 15
+[compile-uikitml] ✅ Compiled: title.uikitml -> title.json
+[compile-uikitml] Reading file: /home/hatch/workspace/neon-hoops/ui/toast.uikitml
+[compile-uikitml] File content length: 595 characters
+[compile-uikitml] Real parse result for toast.uikitml:
+[compile-uikitml] Element type: container
+[compile-uikitml] Classes found: 3
+[compile-uikitml] Ranges found: 6
+[compile-uikitml] ✅ Compiled: toast.uikitml -> toast.json
+👁️  UIKitML file watcher started - monitoring for changes...
+🚀 IWSDK Dev: Starting injection bundle generation...
+🔄 Loading pre-built IWSDK injection bundle...
+👁️  UIKitML file watcher ready
+✅ IWSDK injection bundle loaded and configured (1116.7KB)
+✅ IWSDK Dev: Injection bundle ready
+
+  VITE v7.3.3  ready in 1751 ms
+
+  ➜  Local:   https://localhost:8081/
+  ➜  Network: https://198.19.0.2:8081/
+[RAG-MCP] Server not found, skipping warmup
+💉 IWSDK Dev: Injecting runtime script into HTML
+[browser:debug] [vite] connecting...
+[browser:debug] [vite] connected.
+[browser:log] [IWSDK Dev] Configuration: {device: metaQuest3, activation: localhost, verbose: true, sem: null, ai: Object}
+[browser:log] [IWSDK Dev] 🎯 Activating IWER runtime...
+[browser:log] [IWSDK Dev] 📱 Using device configuration: metaQuest3
+[browser:log] [IWSDK Dev] 🔌 Initializing MCP client...
+[browser:log] [IWSDK-MCP] Connecting to: wss://localhost:8081/__iwer_mcp
+[browser:log] [IWSDK Dev] ✅ MCP client initialized
+[browser:log] [IWSDK Dev] ✅ Runtime activated successfully!
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"type":"iwsdk_browser_hello","tabId":"tab-mplvikhv-y4tgbm","tabGeneration":1}
+[browser:log] [IWSDK-MCP] Connected
+[browser:warning] THREE.WARNING: Multiple instances of Three.js being imported.
+[browser:log]                                                  
+▄▄▄▄▄▄  ▄▄      ▄▄   ▄▄▄▄    ▄▄▄▄▄     ▄▄   ▄▄▄ 
+▀▀██▀▀  ██      ██ ▄█▀▀▀▀█   ██▀▀▀██   ██  ██▀  
+  ██    ▀█▄ ██ ▄█▀ ██▄       ██    ██  ██▄██    
+  ██     ██ ██ ██   ▀████▄   ██    ██  █████    
+  ██     ███▀▀███       ▀██  ██    ██  ██  ██▄  
+▄▄██▄▄   ███  ███  █▄▄▄▄▄█▀  ██▄▄▄██   ██   ██▄ 
+▀▀▀▀▀▀   ▀▀▀  ▀▀▀   ▀▀▀▀▀    ▀▀▀▀▀     ▀▀    ▀▀                                                
+===============================================
+Immersive Web SDK v0.3.1
+Three.js r181
+EliCS v3.4.2
+[browser:warning] [.WebGL-0x335400144800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[browser:warning] [.WebGL-0x335400144800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[browser:warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[browser:warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[browser:warning] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+[browser:warning] [.WebGL-0x335400144800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[browser:warning] [.WebGL-0x335400144800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+[IWSDK-MCP] WebSocket upgrade request received
+[IWSDK-MCP] Client connected
+[IWSDK-MCP] Message received: {"id":"1779753907169-f81a9e3914243","method":"ecs_snapshot","params":{}}
+[IWSDK-MCP] Message received: {"id":"1779753907169-f81a9e3914243","result":{"label":"snap-0","entityCount":18,"componentCount":58,
+[MCP-IWER] Response for 1779753907169-f81a9e3914243 forwarded (first-wins)
+🖥️  IWSDK: Headless browser launched
+[browser:debug] [IWSDK-MCP] Received: ecs_snapshot {}
+[browser:debug] [IWSDK-MCP] Result: {label: snap-0, entityCount: 18, componentCount: 58, storedSnapshots: Array(1)}
+[IWSDK-MCP] Client disconnected
+[IWSDK-MCP] Client disconnected
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1116.7KB
+  - Activation mode: localhost
+  - AI: agent mode (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1116.7KB
+  - Activation mode: localhost
+  - AI: agent mode (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+

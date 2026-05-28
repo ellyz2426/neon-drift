@@ -1,0 +1,14 @@
+<style>
+  .panel { display:flex; flex-direction:column; padding:20; background-color:rgba(0,0,0,0.85); border-color:#ffff00; border-width:2; border-radius:12; }
+  .title { font-size:26; color:#ffff00; text-align:center; margin-bottom:16; }
+  .entry { font-size:16; color:#ffffff; margin:4; }
+  .btn { padding:10; background-color:#222200; border-color:#ffff00; border-width:2; border-radius:8; margin-top:12; }
+  .btn-text { font-size:16; color:#ffff88; text-align:center; }
+</style>
+<div class="panel">
+  <span class="title">LEADERBOARD</span>
+  <span class="entry">1. Player - 45.23s</span>
+  <span class="entry">2. AI_1 - 47.10s</span>
+  <span class="entry">3. AI_2 - 48.55s</span>
+  <button id="btn_back" class="btn" cursor="pointer"><span class="btn-text">BACK</span></button>
+</div>

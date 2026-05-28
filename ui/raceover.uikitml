@@ -1,0 +1,14 @@
+<style>
+  .panel { display:flex; flex-direction:column; padding:20; background-color:rgba(0,0,0,0.9); border-color:#00ff00; border-width:2; border-radius:12; }
+  .title { font-size:28; color:#00ff00; text-align:center; margin-bottom:16; }
+  .stat { font-size:18; color:#ffffff; margin:6; text-align:center; }
+  .btn { padding:12; background-color:#002200; border-color:#00ff00; border-width:2; border-radius:8; margin:8; }
+  .btn-text { font-size:18; color:#88ff88; text-align:center; }
+</style>
+<div class="panel">
+  <span class="title">RACE COMPLETE</span>
+  <span id="final_position" class="stat">P1</span>
+  <span id="best_lap" class="stat">Best: 0.00s</span>
+  <button id="btn_rematch" class="btn" cursor="pointer"><span class="btn-text">REMATCH</span></button>
+  <button id="btn_menu" class="btn" cursor="pointer"><span class="btn-text">MAIN MENU</span></button>
+</div>
