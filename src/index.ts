@@ -39,7 +39,7 @@ const effects = new EffectsManager(world.scene);
 const minimap = new MiniMap();
 
 let gameState: GameState = 'title';
-let gameMode: 'race' | 'timetrial' = 'race';
+let gameMode: 'race' | 'timetrial' | 'championship' = 'race';
 let track: Track | null = null;
 let player: HoverVehicle | null = null;
 let aiVehicles: HoverVehicle[] = [];
@@ -62,6 +62,13 @@ let countdownActive = false;
 let driftCombo = 0;
 let driftComboTimer = 0;
 let hazardObstacles: Array<{mesh: Mesh, t: number, speed: number}> = [];
+let championshipRaceIdx = 0;
+let championshipPoints = 0;
+let championshipTotalPoints = 0;
+let vehicleSkinIdx = 0;
+const VEHICLE_SKINS = [0x00ffff, 0xff00ff, 0xffff00, 0x00ff00];
+let weatherRainActive = false;
+let rainParticles: Mesh[] = [];
 
 const input = { throttle: 0, brake: 0, steer: 0, boost: false, drift: false, missile: false };
 
@@ -182,6 +189,9 @@ function initTrackFeatures() {
 }
 
 function startRace() {
+  if (gameMode === 'championship') {
+    currentTrackIdx = championshipRaceIdx % TRACKS.length;
+  }
   const trackId = TRACKS[currentTrackIdx].id;
   if (track) world.scene.remove(track.group);
   aiVehicles.forEach(v => world.scene.remove(v.group));
@@ -193,7 +203,7 @@ function startRace() {
   world.scene.add(track.group);
   initTrackFeatures();
 
-  player = new HoverVehicle(HOVER_COLORS.player, true);
+  player = new HoverVehicle(VEHICLE_SKINS[vehicleSkinIdx], true);
   const startPos = track.getStartPosition();
   const startTan = track.getStartTangent();
   player.setPosition(startPos, startTan);
@@ -232,8 +242,13 @@ function updateHUD() {
   const doc = ui.hud.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
   if (!doc) return;
   setText(doc, 'speed', `${Math.round(Math.abs(player.speed))} km/h`);
-  setText(doc, 'lap', gameMode === 'timetrial' ? `BEST: ${bestLap===Infinity?'--':bestLap.toFixed(2)}s` : `${player.lap + 1} / 3`);
-  setText(doc, 'position', gameMode === 'timetrial' ? 'TIME TRIAL' : `P${getPosition()}`);
+  if (gameMode === 'championship') {
+    setText(doc, 'lap', `Race ${championshipRaceIdx+1}/3`);
+    setText(doc, 'position', `P${getPosition()} ${championshipTotalPoints}pts`);
+  } else {
+    setText(doc, 'lap', gameMode === 'timetrial' ? `BEST: ${bestLap===Infinity?'--':bestLap.toFixed(2)}s` : `${player.lap + 1} / 3`);
+    setText(doc, 'position', gameMode === 'timetrial' ? 'TIME TRIAL' : `P${getPosition()}`);
+  }
   setText(doc, 'boost', `${Math.round(player.boostCharge * 100)}%`);
   setText(doc, 'drift', driftCombo > 0 ? `${driftCombo.toFixed(1)}x` : '0x');
   const lapTime = (performance.now()/1000 - lapStartTime).toFixed(1);
@@ -275,8 +290,22 @@ function finishRace() {
   showUI('raceover');
   audio.raceEnd();
   const doc = ui.raceover.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
-  setText(doc, 'final_position', gameMode === 'timetrial' ? `BEST: ${bestLap.toFixed(2)}s` : `P${getPosition()}`);
-  setText(doc, 'best_lap', `${bestLap.toFixed(2)}s`);
+  const pos = getPosition();
+  if (gameMode === 'championship') {
+    const pointsTable = [25,18,15,12];
+    const pts = pointsTable[pos-1] || 10;
+    championshipPoints += pts;
+    championshipTotalPoints += pts;
+    setText(doc, 'final_position', `P${pos} +${pts}pts`);
+    setText(doc, 'best_lap', `Total: ${championshipTotalPoints}pts`);
+    championshipRaceIdx++;
+    if (championshipRaceIdx >= 3) {
+      setText(doc, 'final_position', `CHAMPIONSHIP FINISH P${pos}`);
+    }
+  } else {
+    setText(doc, 'final_position', gameMode === 'timetrial' ? `BEST: ${bestLap.toFixed(2)}s` : `P${pos}`);
+    setText(doc, 'best_lap', `${bestLap.toFixed(2)}s`);
+  }
   const key = `neon_drift_best_${TRACKS[currentTrackIdx].id}`;
   const prev = parseFloat(localStorage.getItem(key) || '9999');
   if (bestLap < prev) localStorage.setItem(key, bestLap.toFixed(2));
@@ -416,8 +445,9 @@ function setupUIHandlers() {
   const titleDoc = ui.title.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
   titleDoc?.getElementById('btn-play')?.addEventListener('click', () => { gameMode='race'; gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
   titleDoc?.getElementById('btn-timetrial')?.addEventListener('click', () => { gameMode='timetrial'; gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
+  titleDoc?.getElementById('btn-championship')?.addEventListener('click', () => { gameMode='championship'; championshipRaceIdx=0; championshipPoints=0; championshipTotalPoints=0; gameState='track_select'; currentTrackIdx=0; showUI('trackselect'); updateTrackSelectUI(); });
   titleDoc?.getElementById('btn-leaderboard')?.addEventListener('click', () => { gameState='leaderboard'; showUI('leaderboard'); });
-  titleDoc?.getElementById('btn-settings')?.addEventListener('click', () => { gameState='settings'; showUI('settings'); });
+  titleDoc?.getElementById('btn-settings')?.addEventListener('click', () => { gameState='settings'; showUI('settings'); updateSettingsUI(); });
 
   const tsDoc = ui.trackselect.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
   tsDoc?.getElementById('btn_start')?.addEventListener('click', startRace);
@@ -436,11 +466,51 @@ function setupUIHandlers() {
 
   const setDoc = ui.settings.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
   setDoc?.getElementById('btn_back')?.addEventListener('click', () => { gameState='title'; showUI('title'); });
+  setDoc?.getElementById('btn_skin_prev')?.addEventListener('click', () => { vehicleSkinIdx = (vehicleSkinIdx + VEHICLE_SKINS.length -1) % VEHICLE_SKINS.length; updateSettingsUI(); });
+  setDoc?.getElementById('btn_skin_next')?.addEventListener('click', () => { vehicleSkinIdx = (vehicleSkinIdx +1) % VEHICLE_SKINS.length; updateSettingsUI(); });
+  setDoc?.getElementById('btn_weather')?.addEventListener('click', () => { weatherRainActive = !weatherRainActive; if (weatherRainActive) initRain(); else clearRain(); updateSettingsUI(); });
 }
 
 function updateTrackSelectUI() {
   const doc = ui.trackselect.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
   setText(doc, 'track_name', TRACKS[currentTrackIdx].name);
+}
+
+function updateSettingsUI() {
+  const doc = ui.settings.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
+  const skinNames = ['Cyan', 'Magenta', 'Yellow', 'Green'];
+  setText(doc, 'skin_name', skinNames[vehicleSkinIdx]);
+  setText(doc, 'weather_val', weatherRainActive ? 'ON' : 'OFF');
+}
+
+function initRain() {
+  clearRain();
+  const count = 200;
+  for (let i=0;i<count;i++) {
+    const geo = new SphereGeometry(0.02, 4,4);
+    const mat = new MeshBasicMaterial({ color: 0x88ccff, transparent:true, opacity:0.6 });
+    const mesh = new Mesh(geo, mat);
+    mesh.position.set((Math.random()-0.5)*80, 10+Math.random()*10, (Math.random()-0.5)*80);
+    world.scene.add(mesh);
+    rainParticles.push(mesh);
+  }
+}
+
+function clearRain() {
+  rainParticles.forEach(m => world.scene.remove(m));
+  rainParticles = [];
+}
+
+function updateRain(dt: number) {
+  if (!weatherRainActive) return;
+  rainParticles.forEach(m => {
+    m.position.y -= dt * 20;
+    if (m.position.y < 0) {
+      m.position.y = 10 + Math.random()*10;
+      m.position.x = (Math.random()-0.5)*80;
+      m.position.z = (Math.random()-0.5)*80;
+    }
+  });
 }
 
 setTimeout(setupUIHandlers, 1000);
@@ -547,6 +617,7 @@ const system = createSystem((world, dt) => {
   effects.updateSpeedLines(player.group.position, player.speed, dt);
   effects.setShieldActive(player.group.position, shieldActive);
   effects.update(dt);
+  updateRain(dt);
 
   if (track) {
     const aiPos = aiVehicles.map(v => v.group.position);
