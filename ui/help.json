@@ -1,0 +1,742 @@
+{
+  "element": {
+    "type": "container",
+    "sourceTag": "div",
+    "children": [
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "HOW TO PLAY"
+        ],
+        "properties": {
+          "class": "help-title"
+        },
+        "dataUid": "uid-2"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "VR Controls"
+        ],
+        "properties": {
+          "class": "help-section"
+        },
+        "dataUid": "uid-3"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Right Trigger: Hold to charge, release to shoot"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-4"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "B Button: Pause game"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-5"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Laser Pointer: Navigate menus"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-6"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Browser Controls"
+        ],
+        "properties": {
+          "class": "help-section"
+        },
+        "dataUid": "uid-7"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Click + Drag Up: Charge power (higher = stronger)"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-8"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Mouse Left/Right: Aim direction"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-9"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Release: Shoot the ball"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-10"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Keyboard Shortcuts"
+        ],
+        "properties": {
+          "class": "help-section"
+        },
+        "dataUid": "uid-11"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "ESC: Pause / Resume"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-12"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "R: Quick restart (game over screen)"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-13"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "M: Return to menu (game over screen)"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-14"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "1-7: Quick mode select from title/modes"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-15"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Game Modes (7)"
+        ],
+        "properties": {
+          "class": "help-section"
+        },
+        "dataUid": "uid-16"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Free Throw: 10 shots from the line"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-17"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Three-Point Contest: 5 racks, 60s timer"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-18"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Arcade: Progressive difficulty, 30s timer"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-19"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "H.O.R.S.E.: Match shots vs AI opponent"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-20"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Trick Shots: 10 special shot challenges"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-21"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Daily Challenge: 10 daily shots, same for all"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-22"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Practice: Unlimited, no pressure"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-23"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Scoring"
+        ],
+        "properties": {
+          "class": "help-section"
+        },
+        "dataUid": "uid-24"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Swish (no rim): 3 pts"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-25"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Clean make: 2 pts"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-26"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Three-point range: +1 bonus"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-27"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Half-court range: +2 bonus"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-28"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "Streak 3+: escalating bonus per make"
+        ],
+        "properties": {
+          "class": "help-text"
+        },
+        "dataUid": "uid-29"
+      },
+      {
+        "sourceTag": "span",
+        "type": "custom",
+        "children": [
+          "BACK"
+        ],
+        "properties": {
+          "id": "btn-help-back",
+          "class": "help-back",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-30"
+      }
+    ],
+    "properties": {
+      "class": "help-panel"
+    },
+    "dataUid": "uid-1"
+  },
+  "classes": {
+    "help-panel": {
+      "content": {
+        "display": "flex",
+        "flexDirection": "column",
+        "paddingTop": "2",
+        "paddingBottom": "2",
+        "paddingLeft": "3",
+        "paddingRight": "3",
+        "backgroundColor": "rgba(0, 0, 0, 0.92)",
+        "borderColor": "#ff6600",
+        "borderWidth": "0.12",
+        "borderRadius": 1.5
+      }
+    },
+    "help-title": {
+      "content": {
+        "fontSize": "2.8",
+        "color": "#ff6600",
+        "fontWeight": "bold",
+        "marginBottom": "1",
+        "alignItems": "center"
+      }
+    },
+    "help-section": {
+      "content": {
+        "fontSize": "1.5",
+        "color": "#ffaa44",
+        "marginTop": "0.6",
+        "marginBottom": "0.3"
+      }
+    },
+    "help-text": {
+      "content": {
+        "fontSize": "1.1",
+        "color": "#cccccc",
+        "marginBottom": "0.15"
+      }
+    },
+    "help-back": {
+      "content": {
+        "fontSize": "1.5",
+        "color": "#aaaaaa",
+        "backgroundColor": "rgba(100, 100, 100, 0.2)",
+        "borderColor": "#666666",
+        "borderWidth": "0.06",
+        "borderRadius": 0.6,
+        "paddingTop": "0.5",
+        "paddingBottom": "0.5",
+        "paddingLeft": "2",
+        "paddingRight": "2",
+        "marginTop": "1",
+        "cursor": "pointer",
+        "alignItems": "center"
+      }
+    }
+  },
+  "ranges": {
+    "help-panel": {
+      "start": {
+        "line": 1,
+        "column": 2
+      },
+      "end": {
+        "line": 1,
+        "column": 13
+      }
+    },
+    "help-title": {
+      "start": {
+        "line": 13,
+        "column": 2
+      },
+      "end": {
+        "line": 13,
+        "column": 13
+      }
+    },
+    "help-section": {
+      "start": {
+        "line": 20,
+        "column": 2
+      },
+      "end": {
+        "line": 20,
+        "column": 15
+      }
+    },
+    "help-text": {
+      "start": {
+        "line": 26,
+        "column": 2
+      },
+      "end": {
+        "line": 26,
+        "column": 12
+      }
+    },
+    "help-back": {
+      "start": {
+        "line": 31,
+        "column": 2
+      },
+      "end": {
+        "line": 31,
+        "column": 12
+      }
+    },
+    "uid-1": {
+      "start": {
+        "line": 47,
+        "column": 0
+      },
+      "end": {
+        "line": 77,
+        "column": 6
+      }
+    },
+    "uid-2": {
+      "start": {
+        "line": 48,
+        "column": 2
+      },
+      "end": {
+        "line": 48,
+        "column": 45
+      }
+    },
+    "uid-3": {
+      "start": {
+        "line": 49,
+        "column": 2
+      },
+      "end": {
+        "line": 49,
+        "column": 47
+      }
+    },
+    "uid-4": {
+      "start": {
+        "line": 50,
+        "column": 2
+      },
+      "end": {
+        "line": 50,
+        "column": 80
+      }
+    },
+    "uid-5": {
+      "start": {
+        "line": 51,
+        "column": 2
+      },
+      "end": {
+        "line": 51,
+        "column": 53
+      }
+    },
+    "uid-6": {
+      "start": {
+        "line": 52,
+        "column": 2
+      },
+      "end": {
+        "line": 52,
+        "column": 62
+      }
+    },
+    "uid-7": {
+      "start": {
+        "line": 53,
+        "column": 2
+      },
+      "end": {
+        "line": 53,
+        "column": 52
+      }
+    },
+    "uid-8": {
+      "start": {
+        "line": 54,
+        "column": 2
+      },
+      "end": {
+        "line": 54,
+        "column": 82
+      }
+    },
+    "uid-9": {
+      "start": {
+        "line": 55,
+        "column": 2
+      },
+      "end": {
+        "line": 55,
+        "column": 64
+      }
+    },
+    "uid-10": {
+      "start": {
+        "line": 56,
+        "column": 2
+      },
+      "end": {
+        "line": 56,
+        "column": 56
+      }
+    },
+    "uid-11": {
+      "start": {
+        "line": 57,
+        "column": 2
+      },
+      "end": {
+        "line": 57,
+        "column": 54
+      }
+    },
+    "uid-12": {
+      "start": {
+        "line": 58,
+        "column": 2
+      },
+      "end": {
+        "line": 58,
+        "column": 52
+      }
+    },
+    "uid-13": {
+      "start": {
+        "line": 59,
+        "column": 2
+      },
+      "end": {
+        "line": 59,
+        "column": 68
+      }
+    },
+    "uid-14": {
+      "start": {
+        "line": 60,
+        "column": 2
+      },
+      "end": {
+        "line": 60,
+        "column": 69
+      }
+    },
+    "uid-15": {
+      "start": {
+        "line": 61,
+        "column": 2
+      },
+      "end": {
+        "line": 61,
+        "column": 72
+      }
+    },
+    "uid-16": {
+      "start": {
+        "line": 62,
+        "column": 2
+      },
+      "end": {
+        "line": 62,
+        "column": 50
+      }
+    },
+    "uid-17": {
+      "start": {
+        "line": 63,
+        "column": 2
+      },
+      "end": {
+        "line": 63,
+        "column": 67
+      }
+    },
+    "uid-18": {
+      "start": {
+        "line": 64,
+        "column": 2
+      },
+      "end": {
+        "line": 64,
+        "column": 72
+      }
+    },
+    "uid-19": {
+      "start": {
+        "line": 65,
+        "column": 2
+      },
+      "end": {
+        "line": 65,
+        "column": 74
+      }
+    },
+    "uid-20": {
+      "start": {
+        "line": 66,
+        "column": 2
+      },
+      "end": {
+        "line": 66,
+        "column": 71
+      }
+    },
+    "uid-21": {
+      "start": {
+        "line": 67,
+        "column": 2
+      },
+      "end": {
+        "line": 67,
+        "column": 72
+      }
+    },
+    "uid-22": {
+      "start": {
+        "line": 68,
+        "column": 2
+      },
+      "end": {
+        "line": 68,
+        "column": 78
+      }
+    },
+    "uid-23": {
+      "start": {
+        "line": 69,
+        "column": 2
+      },
+      "end": {
+        "line": 69,
+        "column": 65
+      }
+    },
+    "uid-24": {
+      "start": {
+        "line": 70,
+        "column": 2
+      },
+      "end": {
+        "line": 70,
+        "column": 43
+      }
+    },
+    "uid-25": {
+      "start": {
+        "line": 71,
+        "column": 2
+      },
+      "end": {
+        "line": 71,
+        "column": 54
+      }
+    },
+    "uid-26": {
+      "start": {
+        "line": 72,
+        "column": 2
+      },
+      "end": {
+        "line": 72,
+        "column": 50
+      }
+    },
+    "uid-27": {
+      "start": {
+        "line": 73,
+        "column": 2
+      },
+      "end": {
+        "line": 73,
+        "column": 60
+      }
+    },
+    "uid-28": {
+      "start": {
+        "line": 74,
+        "column": 2
+      },
+      "end": {
+        "line": 74,
+        "column": 59
+      }
+    },
+    "uid-29": {
+      "start": {
+        "line": 75,
+        "column": 2
+      },
+      "end": {
+        "line": 75,
+        "column": 69
+      }
+    },
+    "uid-30": {
+      "start": {
+        "line": 76,
+        "column": 2
+      },
+      "end": {
+        "line": 76,
+        "column": 73
+      }
+    }
+  }
+}
