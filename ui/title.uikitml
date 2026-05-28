@@ -9,6 +9,7 @@
   <button id="btn-play" class="btn" cursor="pointer"><span class="btn-text">RACE</span></button>
   <button id="btn-timetrial" class="btn" cursor="pointer"><span class="btn-text">TIME TRIAL</span></button>
   <button id="btn-championship" class="btn" cursor="pointer"><span class="btn-text">CHAMPIONSHIP</span></button>
+  <button id="btn-ghost" class="btn" cursor="pointer"><span class="btn-text">GHOST RACE</span></button>
   <button id="btn-leaderboard" class="btn" cursor="pointer"><span class="btn-text">LEADERBOARD</span></button>
   <button id="btn-settings" class="btn" cursor="pointer"><span class="btn-text">SETTINGS</span></button>
 </div>

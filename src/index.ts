@@ -39,7 +39,7 @@ const effects = new EffectsManager(world.scene);
 const minimap = new MiniMap();
 
 let gameState: GameState = 'title';
-let gameMode: 'race' | 'timetrial' | 'championship' = 'race';
+let gameMode: 'race' | 'timetrial' | 'championship' | 'ghost' = 'race';
 let track: Track | null = null;
 let player: HoverVehicle | null = null;
 let aiVehicles: HoverVehicle[] = [];
@@ -53,6 +53,10 @@ let bestLap = Infinity;
 let raceStartTime = 0;
 let ghostTrail: Vector3[] = [];
 let ghostMesh: Mesh | null = null;
+let ghostVehicle: Mesh | null = null;
+let ghostPath: Vector3[] = [];
+let replayCamActive = false;
+let replayCamTime = 0;
 let collisionCooldown = 0;
 let shieldActive = false;
 let shieldTimer = 0;
@@ -198,6 +202,8 @@ function startRace() {
   aiVehicles = [];
   if (player) world.scene.remove(player.group);
   if (ghostMesh) { world.scene.remove(ghostMesh); ghostMesh = null; }
+  if (ghostVehicle) { world.scene.remove(ghostVehicle); ghostVehicle = null; }
+  ghostPath = [];
 
   track = new Track(trackId);
   world.scene.add(track.group);
@@ -217,6 +223,21 @@ function startRace() {
     ai.speed = 12 + i*2;
     world.scene.add(ai.group);
     aiVehicles.push(ai);
+  }
+
+  if (gameMode === 'ghost') {
+    const key = `neon_drift_ghost_${trackId}`;
+    const stored = localStorage.getItem(key);
+    if (stored) {
+      try {
+        const arr = JSON.parse(stored) as Array<{x:number,y:number,z:number}>;
+        ghostPath = arr.map(p => new Vector3(p.x, p.y, p.z));
+        const geo = new BoxGeometry(1.2,0.3,2);
+        const mat = new MeshStandardMaterial({ color: 0xffffff, emissive: 0xffffff, emissiveIntensity: 0.3, transparent:true, opacity:0.5, wireframe:true });
+        ghostVehicle = new Mesh(geo, mat);
+        world.scene.add(ghostVehicle);
+      } catch {}
+    }
   }
 
   lapStartTime = performance.now() / 1000;
@@ -308,8 +329,17 @@ function finishRace() {
   }
   const key = `neon_drift_best_${TRACKS[currentTrackIdx].id}`;
   const prev = parseFloat(localStorage.getItem(key) || '9999');
-  if (bestLap < prev) localStorage.setItem(key, bestLap.toFixed(2));
+  if (bestLap < prev) {
+    localStorage.setItem(key, bestLap.toFixed(2));
+    if (ghostTrail.length > 20) {
+      const ghostKey = `neon_drift_ghost_${TRACKS[currentTrackIdx].id}`;
+      const pts = ghostTrail.map(v => ({x:v.x, y:v.y, z:v.z}));
+      localStorage.setItem(ghostKey, JSON.stringify(pts.slice(0, 500)));
+    }
+  }
   createGhost();
+  replayCamActive = true;
+  replayCamTime = 0;
 }
 
 function createGhost() {
@@ -446,6 +476,7 @@ function setupUIHandlers() {
   titleDoc?.getElementById('btn-play')?.addEventListener('click', () => { gameMode='race'; gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
   titleDoc?.getElementById('btn-timetrial')?.addEventListener('click', () => { gameMode='timetrial'; gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
   titleDoc?.getElementById('btn-championship')?.addEventListener('click', () => { gameMode='championship'; championshipRaceIdx=0; championshipPoints=0; championshipTotalPoints=0; gameState='track_select'; currentTrackIdx=0; showUI('trackselect'); updateTrackSelectUI(); });
+  titleDoc?.getElementById('btn-ghost')?.addEventListener('click', () => { gameMode='ghost'; gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
   titleDoc?.getElementById('btn-leaderboard')?.addEventListener('click', () => { gameState='leaderboard'; showUI('leaderboard'); });
   titleDoc?.getElementById('btn-settings')?.addEventListener('click', () => { gameState='settings'; showUI('settings'); updateSettingsUI(); });
 
@@ -542,6 +573,15 @@ const system = createSystem((world, dt) => {
 
   if (gameState !== 'racing' || !player || !track) {
     updateGhost(dt);
+    if (replayCamActive) {
+      replayCamTime += dt;
+      const radius = 8;
+      const angle = replayCamTime * 0.5;
+      const camPos = player.group.position.clone().add(new Vector3(Math.cos(angle)*radius, 3, Math.sin(angle)*radius));
+      world.camera.position.copy(camPos);
+      world.camera.lookAt(player.group.position);
+      if (replayCamTime > 10) replayCamActive = false;
+    }
     return;
   }
 
@@ -587,6 +627,14 @@ const system = createSystem((world, dt) => {
   }
 
   player.update(dt, input, tangent);
+  if (ghostVehicle && ghostPath.length > 0) {
+    const idx = Math.floor((time - raceStartTime) * 10) % ghostPath.length;
+    ghostVehicle.position.copy(ghostPath[idx]);
+  }
+  // XR haptic feedback placeholder for drift/boost
+  if (gp && (input.drift || input.boost)) {
+    // haptic pulse would be triggered here
+  }
   updateAI(dt);
   checkCheckpoints();
   updateBoostPads();
