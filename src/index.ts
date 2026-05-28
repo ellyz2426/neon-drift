@@ -59,6 +59,9 @@ let shieldTimer = 0;
 let missileCooldown = 0;
 let raceCountdown = 0;
 let countdownActive = false;
+let driftCombo = 0;
+let driftComboTimer = 0;
+let hazardObstacles: Array<{mesh: Mesh, t: number, speed: number}> = [];
 
 const input = { throttle: 0, brake: 0, steer: 0, boost: false, drift: false, missile: false };
 
@@ -101,10 +104,12 @@ function initTrackFeatures() {
   powerUps.forEach(p => world.scene.remove(p.group));
   jumpRamps.forEach(m => world.scene.remove(m));
   turboZones.forEach(z => world.scene.remove(z.mesh));
+  hazardObstacles.forEach(h => world.scene.remove(h.mesh));
   boostPads = [];
   powerUps = [];
   jumpRamps = [];
   turboZones = [];
+  hazardObstacles = [];
   
   if (!track) return;
   
@@ -160,6 +165,19 @@ function initTrackFeatures() {
     ring.rotation.x = -Math.PI/2;
     world.scene.add(ring);
     turboZones.push({ mesh: ring, center: pos.clone(), radius: 4 });
+  }
+  
+  // Moving hazards
+  for (let i=0;i<3;i++) {
+    const t = (i * 0.33 + 0.1) % 1;
+    const pos = track.curve.getPointAt(t);
+    pos.y += 0.8;
+    const geo = new BoxGeometry(1,1,1);
+    const mat = new MeshStandardMaterial({ color: 0xff0033, emissive: 0xff0033, emissiveIntensity: 1 });
+    const mesh = new Mesh(geo, mat);
+    mesh.position.copy(pos);
+    world.scene.add(mesh);
+    hazardObstacles.push({ mesh, t, speed: 0.05 + i*0.01 });
   }
 }
 
@@ -217,6 +235,7 @@ function updateHUD() {
   setText(doc, 'lap', gameMode === 'timetrial' ? `BEST: ${bestLap===Infinity?'--':bestLap.toFixed(2)}s` : `${player.lap + 1} / 3`);
   setText(doc, 'position', gameMode === 'timetrial' ? 'TIME TRIAL' : `P${getPosition()}`);
   setText(doc, 'boost', `${Math.round(player.boostCharge * 100)}%`);
+  setText(doc, 'drift', driftCombo > 0 ? `${driftCombo.toFixed(1)}x` : '0x');
   const lapTime = (performance.now()/1000 - lapStartTime).toFixed(1);
   setText(doc, 'laptime', countdownActive ? `GO! ${Math.ceil(raceCountdown)}` : `${lapTime}s`);
 }
@@ -486,10 +505,15 @@ const system = createSystem((world, dt) => {
     player.mesh.material.emissiveIntensity = 0.6;
   }
 
-  if (input.drift) {
+  if (input.drift && Math.abs(player.speed) > 5) {
     input.steer *= 1.5;
     player.speed *= 0.995;
     if (Math.random() < 0.3) effects.spawnDriftSparks(player.group.position.clone());
+    driftComboTimer = 1.5;
+    driftCombo = Math.min(10, driftCombo + dt * 2);
+  } else {
+    driftComboTimer -= dt;
+    if (driftComboTimer <= 0) driftCombo = 0;
   }
 
   player.update(dt, input, tangent);
@@ -500,6 +524,24 @@ const system = createSystem((world, dt) => {
   updateTurboZones();
   updateJumpRamps();
   handleCollisions(dt);
+  
+  // Update moving hazards
+  hazardObstacles.forEach(h => {
+    h.t = (h.t + h.speed * dt * 0.05) % 1;
+    const pos = track!.curve.getPointAt(h.t);
+    pos.y += 0.8 + Math.sin(time * 2 + h.t * 10) * 0.3;
+    h.mesh.position.copy(pos);
+    h.mesh.rotation.y += dt * 2;
+    h.mesh.rotation.x += dt * 1.5;
+    // Collision with player
+    if (!shieldActive && player!.group.position.distanceTo(pos) < 1.5) {
+      player!.speed *= 0.5;
+      audio.playTone(100, 0.2, 'sawtooth', 0.3);
+      const dir = player!.group.position.clone().sub(pos).normalize();
+      player!.group.position.add(dir.multiplyScalar(0.8));
+    }
+  });
+  
   updateHUD();
   
   effects.updateSpeedLines(player.group.position, player.speed, dt);

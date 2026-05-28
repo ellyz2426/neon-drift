@@ -9,5 +9,6 @@
   <div class="row"><span class="label">LAP</span><span id="lap" class="value">1 / 3</span></div>
   <div class="row"><span class="label">POS</span><span id="position" class="value">P1</span></div>
   <div class="row"><span class="label">BOOST</span><span id="boost" class="value">100%</span></div>
+  <div class="row"><span class="label">DRIFT</span><span id="drift" class="value">0x</span></div>
   <div class="row"><span class="label">TIME</span><span id="laptime" class="value">0.0s</span></div>
 </div>
