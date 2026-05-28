@@ -1,9 +1,12 @@
 import { World, PanelUI, Follower, FollowBehavior, PanelDocument, UIKitDocument, createSystem, InputComponent } from '@iwsdk/core';
-import { MeshBasicMaterial, GridHelper, Fog, Color, AmbientLight, DirectionalLight, PointLight, Vector3, Mesh, SphereGeometry, MeshStandardMaterial, AdditiveBlending } from '@iwsdk/core';
+import { MeshBasicMaterial, GridHelper, Fog, Color, AmbientLight, DirectionalLight, PointLight, Vector3, Mesh, SphereGeometry, MeshStandardMaterial, AdditiveBlending, CylinderGeometry, RingGeometry, DoubleSide } from '@iwsdk/core';
 import { GameState, TRACKS, HOVER_COLORS } from './types';
 import { AudioManager } from './audio';
 import { Track } from './track';
 import { HoverVehicle } from './vehicle';
+import { PowerUp, PowerUpType } from './powerups';
+import { EffectsManager } from './effects';
+import { MiniMap } from './minimap';
 
 const app = document.getElementById('app') as HTMLDivElement;
 const world = await World.create(app, {
@@ -32,12 +35,18 @@ for (let i=0;i<4;i++) {
 }
 
 const audio = new AudioManager();
+const effects = new EffectsManager(world.scene);
+const minimap = new MiniMap();
 
 let gameState: GameState = 'title';
+let gameMode: 'race' | 'timetrial' = 'race';
 let track: Track | null = null;
 let player: HoverVehicle | null = null;
 let aiVehicles: HoverVehicle[] = [];
 let boostPads: Mesh[] = [];
+let powerUps: PowerUp[] = [];
+let jumpRamps: Mesh[] = [];
+let turboZones: Array<{mesh: Mesh, center: Vector3, radius: number}> = [];
 let currentTrackIdx = 0;
 let lapStartTime = 0;
 let bestLap = Infinity;
@@ -45,8 +54,13 @@ let raceStartTime = 0;
 let ghostTrail: Vector3[] = [];
 let ghostMesh: Mesh | null = null;
 let collisionCooldown = 0;
+let shieldActive = false;
+let shieldTimer = 0;
+let missileCooldown = 0;
+let raceCountdown = 0;
+let countdownActive = false;
 
-const input = { throttle: 0, brake: 0, steer: 0, boost: false, drift: false };
+const input = { throttle: 0, brake: 0, steer: 0, boost: false, drift: false, missile: false };
 
 function setText(doc: UIKitDocument | undefined, id: string, text: string) {
   const el = doc?.getElementById(id);
@@ -79,12 +93,22 @@ function showUI(state: GameState) {
   Object.values(ui).forEach(e => e.object3D.visible = false);
   const ent = ui[state as keyof typeof ui];
   if (ent) ent.object3D.visible = true;
+  minimap.setVisible(state === 'racing');
 }
 
-function initBoostPads() {
+function initTrackFeatures() {
   boostPads.forEach(m => world.scene.remove(m));
+  powerUps.forEach(p => world.scene.remove(p.group));
+  jumpRamps.forEach(m => world.scene.remove(m));
+  turboZones.forEach(z => world.scene.remove(z.mesh));
   boostPads = [];
+  powerUps = [];
+  jumpRamps = [];
+  turboZones = [];
+  
   if (!track) return;
+  
+  // Boost pads
   for (let i=0;i<4;i++) {
     const t = (i * 0.25 + 0.125) % 1;
     const pos = track.curve.getPointAt(t);
@@ -95,6 +119,47 @@ function initBoostPads() {
     mesh.position.copy(pos);
     world.scene.add(mesh);
     boostPads.push(mesh);
+  }
+  
+  // Power-ups
+  const types: PowerUpType[] = ['shield', 'missile', 'turbo', 'shield'];
+  for (let i=0;i<4;i++) {
+    const t = (i * 0.25 + 0.0625) % 1;
+    const pos = track.curve.getPointAt(t);
+    pos.y += 0.5;
+    const pu = new PowerUp(types[i], pos);
+    world.scene.add(pu.group);
+    powerUps.push(pu);
+  }
+  
+  // Jump ramps
+  for (let i=0;i<2;i++) {
+    const t = (i * 0.5 + 0.3) % 1;
+    const pos = track.curve.getPointAt(t);
+    const tangent = track.curve.getTangentAt(t).normalize();
+    pos.y += 0.1;
+    const geo = new CylinderGeometry(2, 3, 0.3, 8, 1, false, 0, Math.PI);
+    const mat = new MeshStandardMaterial({ color: 0xff6600, emissive: 0xff6600, emissiveIntensity: 0.6 });
+    const ramp = new Mesh(geo, mat);
+    ramp.position.copy(pos);
+    ramp.lookAt(pos.clone().add(tangent));
+    ramp.rotateX(Math.PI/2);
+    world.scene.add(ramp);
+    jumpRamps.push(ramp);
+  }
+  
+  // Turbo zones
+  for (let i=0;i<2;i++) {
+    const t = (i * 0.5 + 0.15) % 1;
+    const pos = track.curve.getPointAt(t);
+    pos.y += 0.05;
+    const geo = new RingGeometry(3, 4, 32);
+    const mat = new MeshBasicMaterial({ color: 0xffff00, transparent: true, opacity: 0.4, side: DoubleSide, blending: AdditiveBlending });
+    const ring = new Mesh(geo, mat);
+    ring.position.copy(pos);
+    ring.rotation.x = -Math.PI/2;
+    world.scene.add(ring);
+    turboZones.push({ mesh: ring, center: pos.clone(), radius: 4 });
   }
 }
 
@@ -108,7 +173,7 @@ function startRace() {
 
   track = new Track(trackId);
   world.scene.add(track.group);
-  initBoostPads();
+  initTrackFeatures();
 
   player = new HoverVehicle(HOVER_COLORS.player, true);
   const startPos = track.getStartPosition();
@@ -131,10 +196,17 @@ function startRace() {
   bestLap = Infinity;
   ghostTrail = [];
   collisionCooldown = 0;
+  shieldActive = false;
+  shieldTimer = 0;
+  missileCooldown = 0;
   gameState = 'racing';
   showUI('hud');
   audio.init();
   audio.raceStart();
+  
+  // Countdown
+  countdownActive = true;
+  raceCountdown = 3;
 }
 
 function updateHUD() {
@@ -142,11 +214,11 @@ function updateHUD() {
   const doc = ui.hud.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
   if (!doc) return;
   setText(doc, 'speed', `${Math.round(Math.abs(player.speed))} km/h`);
-  setText(doc, 'lap', `${player.lap + 1} / 3`);
-  setText(doc, 'position', `P${getPosition()}`);
+  setText(doc, 'lap', gameMode === 'timetrial' ? `BEST: ${bestLap===Infinity?'--':bestLap.toFixed(2)}s` : `${player.lap + 1} / 3`);
+  setText(doc, 'position', gameMode === 'timetrial' ? 'TIME TRIAL' : `P${getPosition()}`);
   setText(doc, 'boost', `${Math.round(player.boostCharge * 100)}%`);
   const lapTime = (performance.now()/1000 - lapStartTime).toFixed(1);
-  setText(doc, 'laptime', `${lapTime}s`);
+  setText(doc, 'laptime', countdownActive ? `GO! ${Math.ceil(raceCountdown)}` : `${lapTime}s`);
 }
 
 function getPosition(): number {
@@ -170,7 +242,7 @@ function checkCheckpoints() {
       const lapTime = performance.now()/1000 - lapStartTime;
       if (lapTime < bestLap) bestLap = lapTime;
       audio.lapComplete();
-      if (player.lap >= 3) {
+      if (gameMode === 'race' && player.lap >= 3) {
         finishRace();
       } else {
         lapStartTime = performance.now()/1000;
@@ -184,13 +256,11 @@ function finishRace() {
   showUI('raceover');
   audio.raceEnd();
   const doc = ui.raceover.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
-  setText(doc, 'final_position', `P${getPosition()}`);
+  setText(doc, 'final_position', gameMode === 'timetrial' ? `BEST: ${bestLap.toFixed(2)}s` : `P${getPosition()}`);
   setText(doc, 'best_lap', `${bestLap.toFixed(2)}s`);
-  // Save best time
   const key = `neon_drift_best_${TRACKS[currentTrackIdx].id}`;
   const prev = parseFloat(localStorage.getItem(key) || '9999');
   if (bestLap < prev) localStorage.setItem(key, bestLap.toFixed(2));
-  // Create ghost
   createGhost();
 }
 
@@ -221,16 +291,88 @@ function updateBoostPads() {
   });
 }
 
+function updatePowerUps(dt: number, time: number) {
+  if (!player) return;
+  powerUps.forEach(pu => {
+    pu.update(dt, time);
+    if (pu.active && player.group.position.distanceTo(pu.group.position) < 1.8) {
+      pu.collect();
+      audio.playTone(1200, 0.2, 'square', 0.4);
+      if (pu.type === 'shield') {
+        shieldActive = true;
+        shieldTimer = 8;
+      } else if (pu.type === 'missile') {
+        missileCooldown = 0;
+        input.missile = true;
+      } else if (pu.type === 'turbo') {
+        player.boostCharge = 1;
+        player.speed *= 1.3;
+      }
+    }
+  });
+  if (shieldActive) {
+    shieldTimer -= dt;
+    if (shieldTimer <= 0) shieldActive = false;
+  }
+  if (missileCooldown > 0) missileCooldown -= dt;
+}
+
+function updateTurboZones() {
+  if (!player) return;
+  turboZones.forEach(z => {
+    z.mesh.rotation.z += 0.01;
+    if (player.group.position.distanceTo(z.center) < z.radius) {
+      player.speed *= 1.02;
+      player.boostCharge = Math.min(1, player.boostCharge + 0.01);
+    }
+  });
+}
+
+function updateJumpRamps() {
+  if (!player) return;
+  jumpRamps.forEach(ramp => {
+    if (player.group.position.distanceTo(ramp.position) < 3 && player.speed > 20) {
+      player.group.position.y += 0.5;
+      player.speed *= 1.1;
+    }
+  });
+}
+
+function fireMissile() {
+  if (!player || missileCooldown > 0) return;
+  missileCooldown = 5;
+  // Find closest AI
+  let closest = null;
+  let minDist = Infinity;
+  aiVehicles.forEach(ai => {
+    const d = player!.group.position.distanceTo(ai.group.position);
+    if (d < minDist && d < 20) {
+      minDist = d;
+      closest = ai;
+    }
+  });
+  if (closest) {
+    (closest as HoverVehicle).speed *= 0.5;
+    audio.playTone(200, 0.5, 'sawtooth', 0.5);
+  }
+}
+
 function updateAI(dt: number) {
   if (!track) return;
   aiVehicles.forEach((ai, idx) => {
     const closest = track!.getClosestPoint(ai.group.position);
+    // Rubberbanding
+    const playerT = player ? track!.getClosestPoint(player!.group.position).t + player!.lap : 0;
+    const aiT = closest.t + ai.lap;
+    const diff = playerT - aiT;
+    const speedBoost = Math.max(0, diff * 5);
+    
     const targetT = (closest.t + 0.012 + idx*0.002) % 1;
     const targetPos = track!.curve.getPointAt(targetT);
     const dir = targetPos.clone().sub(ai.group.position).normalize();
     const forward = ai.getForward();
     const steer = Math.sign(dir.x * forward.z - dir.z * forward.x) * 0.6;
-    const throttle = 0.85 + Math.sin(performance.now()*0.001 + idx)*0.1;
+    const throttle = 0.85 + Math.sin(performance.now()*0.001 + idx)*0.1 + speedBoost*0.01;
     ai.update(dt, { throttle, brake:0, steer, boost:false }, track!.getStartTangent());
   });
 }
@@ -238,10 +380,10 @@ function updateAI(dt: number) {
 function handleCollisions(dt: number) {
   if (!player) return;
   collisionCooldown -= dt;
+  if (shieldActive) return;
   for (const ai of aiVehicles) {
     const dist = player.group.position.distanceTo(ai.group.position);
     if (dist < 2.0 && collisionCooldown <= 0) {
-      // Simple bounce
       const dir = player.group.position.clone().sub(ai.group.position).normalize();
       player.group.position.add(dir.multiplyScalar(0.5));
       player.speed *= 0.8;
@@ -253,7 +395,8 @@ function handleCollisions(dt: number) {
 
 function setupUIHandlers() {
   const titleDoc = ui.title.getValue(PanelDocument, 'document') as UIKitDocument | undefined;
-  titleDoc?.getElementById('btn-play')?.addEventListener('click', () => { gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
+  titleDoc?.getElementById('btn-play')?.addEventListener('click', () => { gameMode='race'; gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
+  titleDoc?.getElementById('btn-timetrial')?.addEventListener('click', () => { gameMode='timetrial'; gameState='track_select'; showUI('trackselect'); updateTrackSelectUI(); });
   titleDoc?.getElementById('btn-leaderboard')?.addEventListener('click', () => { gameState='leaderboard'; showUI('leaderboard'); });
   titleDoc?.getElementById('btn-settings')?.addEventListener('click', () => { gameState='settings'; showUI('settings'); });
 
@@ -281,17 +424,22 @@ function updateTrackSelectUI() {
   setText(doc, 'track_name', TRACKS[currentTrackIdx].name);
 }
 
-// Delay UI handler setup to ensure documents loaded
 setTimeout(setupUIHandlers, 1000);
 
 const system = createSystem((world, dt) => {
-  // Global pause toggle
+  const time = performance.now() / 1000;
+  
+  if (countdownActive) {
+    raceCountdown -= dt;
+    if (raceCountdown <= 0) countdownActive = false;
+    else return;
+  }
+
   if (world.input.keyboard.getKeyDown('Escape')) {
     if (gameState === 'racing') { gameState='paused'; showUI('pause'); }
     else if (gameState === 'paused') { gameState='racing'; showUI('hud'); }
   }
 
-  // Track selection navigation
   if (gameState === 'track_select') {
     if (world.input.keyboard.getKeyDown('ArrowLeft') || world.input.keyboard.getKeyDown('KeyA')) {
       currentTrackIdx = (currentTrackIdx + TRACKS.length -1) % TRACKS.length;
@@ -308,8 +456,7 @@ const system = createSystem((world, dt) => {
     return;
   }
 
-  // Input
-  input.throttle = 0; input.brake=0; input.steer=0; input.boost=false; input.drift=false;
+  input.throttle = 0; input.brake=0; input.steer=0; input.boost=false; input.drift=false; input.missile=false;
   const kb = world.input.keyboard;
   if (kb.getKeyPressed('KeyW') || kb.getKeyPressed('ArrowUp')) input.throttle = 1;
   if (kb.getKeyPressed('KeyS') || kb.getKeyPressed('ArrowDown')) input.brake = 1;
@@ -317,6 +464,7 @@ const system = createSystem((world, dt) => {
   if (kb.getKeyPressed('KeyD') || kb.getKeyPressed('ArrowRight')) input.steer = -1;
   if (kb.getKeyPressed('Space')) input.boost = true;
   if (kb.getKeyPressed('ShiftLeft') || kb.getKeyPressed('ShiftRight')) input.drift = true;
+  if (kb.getKeyDown('KeyM')) input.missile = true;
 
   const gp = world.input.xr.gamepads.right;
   if (gp) {
@@ -326,37 +474,49 @@ const system = createSystem((world, dt) => {
     if (stick) input.steer = -stick.x;
     if (gp.getButtonPressed(InputComponent.A_Button)) input.boost = true;
     if (gp.getButtonPressed(InputComponent.Squeeze)) input.drift = true;
+    if (gp.getButtonDown(InputComponent.B_Button)) input.missile = true;
   }
 
+  if (input.missile) fireMissile();
+
   const tangent = track.getStartTangent();
-  // Boost visual
   if (input.boost && player.boostCharge > 0.1) {
     player.mesh.material.emissiveIntensity = 1.2;
   } else {
     player.mesh.material.emissiveIntensity = 0.6;
   }
 
-  // Drift modifies turn
   if (input.drift) {
     input.steer *= 1.5;
     player.speed *= 0.995;
+    if (Math.random() < 0.3) effects.spawnDriftSparks(player.group.position.clone());
   }
 
   player.update(dt, input, tangent);
   updateAI(dt);
   checkCheckpoints();
   updateBoostPads();
+  updatePowerUps(dt, time);
+  updateTurboZones();
+  updateJumpRamps();
   handleCollisions(dt);
   updateHUD();
+  
+  effects.updateSpeedLines(player.group.position, player.speed, dt);
+  effects.setShieldActive(player.group.position, shieldActive);
+  effects.update(dt);
 
-  // Record ghost
+  if (track) {
+    const aiPos = aiVehicles.map(v => v.group.position);
+    minimap.update(track, player.group.position, aiPos);
+  }
+
   if (ghostTrail.length < 1000) ghostTrail.push(player.group.position.clone());
   else {
     ghostTrail.shift();
     ghostTrail.push(player.group.position.clone());
   }
 
-  // Engine sound occasional
   if (Math.random() < 0.05) audio.engineSound(Math.abs(player.speed)/50);
 });
 

@@ -6,7 +6,8 @@
 </style>
 <div class="panel">
   <span class="title">NEON DRIFT VR</span>
-  <button id="btn-play" class="btn" cursor="pointer"><span class="btn-text">PLAY</span></button>
+  <button id="btn-play" class="btn" cursor="pointer"><span class="btn-text">RACE</span></button>
+  <button id="btn-timetrial" class="btn" cursor="pointer"><span class="btn-text">TIME TRIAL</span></button>
   <button id="btn-leaderboard" class="btn" cursor="pointer"><span class="btn-text">LEADERBOARD</span></button>
   <button id="btn-settings" class="btn" cursor="pointer"><span class="btn-text">SETTINGS</span></button>
 </div>

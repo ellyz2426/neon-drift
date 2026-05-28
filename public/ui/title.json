@@ -22,7 +22,7 @@
             "sourceTag": "span",
             "type": "custom",
             "children": [
-              "PLAY"
+              "RACE"
             ],
             "properties": {
               "class": "btn-text"
@@ -45,7 +45,7 @@
             "sourceTag": "span",
             "type": "custom",
             "children": [
-              "LEADERBOARD"
+              "TIME TRIAL"
             ],
             "properties": {
               "class": "btn-text"
@@ -54,11 +54,34 @@
           }
         ],
         "properties": {
-          "id": "btn-leaderboard",
+          "id": "btn-timetrial",
           "class": "btn",
           "cursor": "pointer"
         },
         "dataUid": "uid-5"
+      },
+      {
+        "sourceTag": "button",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "span",
+            "type": "custom",
+            "children": [
+              "LEADERBOARD"
+            ],
+            "properties": {
+              "class": "btn-text"
+            },
+            "dataUid": "uid-8"
+          }
+        ],
+        "properties": {
+          "id": "btn-leaderboard",
+          "class": "btn",
+          "cursor": "pointer"
+        },
+        "dataUid": "uid-7"
       },
       {
         "sourceTag": "button",
@@ -73,7 +96,7 @@
             "properties": {
               "class": "btn-text"
             },
-            "dataUid": "uid-8"
+            "dataUid": "uid-10"
           }
         ],
         "properties": {
@@ -81,7 +104,7 @@
           "class": "btn",
           "cursor": "pointer"
         },
-        "dataUid": "uid-7"
+        "dataUid": "uid-9"
       }
     ],
     "properties": {
@@ -174,7 +197,7 @@
         "column": 0
       },
       "end": {
-        "line": 11,
+        "line": 12,
         "column": 6
       }
     },
@@ -215,17 +238,17 @@
       },
       "end": {
         "line": 9,
-        "column": 110
+        "column": 107
       }
     },
     "uid-6": {
       "start": {
         "line": 9,
-        "column": 60
+        "column": 58
       },
       "end": {
         "line": 9,
-        "column": 101
+        "column": 98
       }
     },
     "uid-7": {
@@ -235,16 +258,36 @@
       },
       "end": {
         "line": 10,
-        "column": 104
+        "column": 110
       }
     },
     "uid-8": {
       "start": {
         "line": 10,
-        "column": 57
+        "column": 60
       },
       "end": {
         "line": 10,
+        "column": 101
+      }
+    },
+    "uid-9": {
+      "start": {
+        "line": 11,
+        "column": 2
+      },
+      "end": {
+        "line": 11,
+        "column": 104
+      }
+    },
+    "uid-10": {
+      "start": {
+        "line": 11,
+        "column": 57
+      },
+      "end": {
+        "line": 11,
         "column": 95
       }
     }
